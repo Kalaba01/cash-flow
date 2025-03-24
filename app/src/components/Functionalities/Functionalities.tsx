@@ -2,13 +2,16 @@
 import styles from "./Functionalities.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Functionalities() {
+  const t = useTranslations("functionalities");
+
   return (
     <section id="features" className={styles.functionalities}>
       <div className={styles.heading}>
-        <h2>Key Features</h2>
-        <p>Explore the main functionalities of our app.</p>
+        <h2>{t("title")}</h2>
+        <p>{t("subtitle")}</p>
       </div>
 
       <motion.div
@@ -27,10 +30,8 @@ export default function Functionalities() {
           />
         </div>
         <div className={styles.text}>
-          <h2>Track Your Income</h2>
-          <p>
-            Easily log and monitor your income sources to manage your cash flow.
-          </p>
+          <h2>{t("incomeTitle")}</h2>
+          <p>{t("incomeDescription")}</p>
         </div>
       </motion.div>
 
@@ -50,8 +51,8 @@ export default function Functionalities() {
           />
         </div>
         <div className={styles.text}>
-          <h2>Manage Expenses</h2>
-          <p>Keep track of your spending and identify saving opportunities.</p>
+          <h2>{t("expensesTitle")}</h2>
+          <p>{t("expensesDescription")}</p>
         </div>
       </motion.div>
 
@@ -71,10 +72,8 @@ export default function Functionalities() {
           />
         </div>
         <div className={styles.text}>
-          <h2>Set Financial Goals</h2>
-          <p>
-            Plan your budget and achieve your financial milestones effortlessly.
-          </p>
+          <h2>{t("goalsTitle")}</h2>
+          <p>{t("goalsDescription")}</p>
         </div>
       </motion.div>
     </section>

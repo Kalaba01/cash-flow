@@ -1,8 +1,11 @@
 "use client";
 import styles from "./Footer.module.scss";
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     const element = document.getElementById(id);
@@ -16,14 +19,14 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.left}>
           <h2>Cash Flow</h2>
-          <p>Track your finances with ease.</p>
+          <p>{t("description")}</p>
         </div>
 
         <div className={styles.center}>
           <ul>
-            <li><a href="#" onClick={(e) => scrollToSection(e, "home")}>Home</a></li>
-            <li><a href="#" onClick={(e) => scrollToSection(e, "features")}>Features</a></li>
-            <li><a href="#" onClick={(e) => scrollToSection(e, "faq")}>FAQ</a></li>
+            <li><a href="#" onClick={(e) => scrollToSection(e, "home")}>{t("home")}</a></li>
+            <li><a href="#" onClick={(e) => scrollToSection(e, "features")}>{t("features")}</a></li>
+            <li><a href="#" onClick={(e) => scrollToSection(e, "faq")}>{t("faq")}</a></li>
           </ul>
         </div>
 

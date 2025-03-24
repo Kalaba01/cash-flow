@@ -1,24 +1,13 @@
 "use client";
 import styles from "./FAQ.module.scss";
-import FAQCard from "@/components/FAQCard/FAQCard";
+import { FAQCard } from "@/components";
 import { motion } from "framer-motion";
-
-const faqs = [
-  {
-    question: "How does Cash Flow help manage my finances?",
-    answer: "Cash Flow allows you to track your income, expenses, and budget in one place, helping you make informed financial decisions."
-  },
-  {
-    question: "Is my financial data secure?",
-    answer: "Yes! We use advanced encryption and security measures to protect your financial information."
-  },
-  {
-    question: "Can I export my financial data?",
-    answer: "Absolutely! You can download your financial records in CSV format for external use."
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function FAQ() {
+  const t = useTranslations("faq");
+  const questions = t.raw("questions");
+
   return (
     <motion.section
       id="faq"
@@ -28,10 +17,10 @@ export default function FAQ() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <h2>Frequently Asked Questions</h2>
+      <h2>{t("title")}</h2>
       <div className={styles.faqList}>
-        {faqs.map((faq, index) => (
-          <FAQCard key={index} question={faq.question} answer={faq.answer} />
+        {questions.map((faq: { q: string; a: string }, index: number) => (
+          <FAQCard key={index} question={faq.q} answer={faq.a} />
         ))}
       </div>
     </motion.section>

@@ -1,0 +1,39 @@
+{
+  "heroSection": {
+    "title": "Take Control of Your Finances",
+    "description": "Track your income, expenses, and financial goals in one place."
+  },
+  "functionalities": {
+    "title": "Key Features",
+    "subtitle": "Explore the main functionalities of our app.",
+    "incomeTitle": "Track Your Income",
+    "incomeDescription": "Easily log and monitor your income sources to manage your cash flow.",
+    "expensesTitle": "Manage Expenses",
+    "expensesDescription": "Keep track of your spending and identify saving opportunities.",
+    "goalsTitle": "Set Financial Goals",
+    "goalsDescription": "Plan your budget and achieve your financial milestones effortlessly."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "q": "How does Cash Flow help manage my finances?",
+        "a": "Cash Flow allows you to track your income, expenses, and budget in one place, helping you make informed financial decisions."
+      },
+      {
+        "q": "Is my financial data secure?",
+        "a": "Yes! We use advanced encryption and security measures to protect your financial information."
+      },
+      {
+        "q": "Can I export my financial data?",
+        "a": "Absolutely! You can download your financial records in CSV format for external use."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Track your finances with ease.",
+    "home": "Home",
+    "features": "Features",
+    "faq": "FAQ"
+  }
+}

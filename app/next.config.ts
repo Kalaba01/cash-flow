@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
+  },
+  i18n: {
+    locales: ["en", "bs"],
+    defaultLocale: "en",
   }
 };
 

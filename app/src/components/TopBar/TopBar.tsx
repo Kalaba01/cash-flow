@@ -1,6 +1,7 @@
 "use client";
 import styles from "./TopBar.module.scss";
-import { FaUser, FaMoon, FaGlobe } from "react-icons/fa";
+import { Language } from "@/components";
+import { FaUser, FaMoon } from "react-icons/fa";
 
 export default function TopBar() {
   return (
@@ -11,7 +12,7 @@ export default function TopBar() {
       <div className={styles.icons}>
         <FaUser className={styles.icon} />
         <FaMoon className={styles.icon} />
-        <FaGlobe className={styles.icon} />
+        <Language />
       </div>
     </header>
   );

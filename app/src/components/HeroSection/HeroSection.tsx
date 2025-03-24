@@ -2,8 +2,11 @@
 import styles from "./HeroSection.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
+  const t = useTranslations("heroSection");
+
   return (
     <motion.section
       id="home"
@@ -14,8 +17,8 @@ export default function HeroSection() {
       viewport={{ once: true }}
     >
       <div className={styles.content}>
-        <h1>Take Control of Your Finances</h1>
-        <p>Track your income, expenses, and financial goals in one place.</p>
+        <h1>{t("title")}</h1>
+        <p>{t("description")}</p>
       </div>
       <div className={styles.image}>
         <Image

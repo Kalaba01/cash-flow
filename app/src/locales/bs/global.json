@@ -1,0 +1,39 @@
+{
+  "heroSection": {
+    "title": "Preuzmite kontrolu nad svojim finansijama",
+    "description": "Pratite svoje prihode, troškove i finansijske ciljeve na jednom mestu."
+  },
+  "functionalities": {
+    "title": "Ključne funkcionalnosti",
+    "subtitle": "Istražite glavne funkcije naše aplikacije.",
+    "incomeTitle": "Pratite svoje prihode",
+    "incomeDescription": "Lako evidentirajte i pratite izvore prihoda kako biste upravljali svojim novčanim tokovima.",
+    "expensesTitle": "Upravljajte troškovima",
+    "expensesDescription": "Vodite evidenciju o svojim troškovima i prepoznajte prilike za štednju.",
+    "goalsTitle": "Postavite finansijske ciljeve",
+    "goalsDescription": "Planirajte budžet i lako ostvarite svoje finansijske ciljeve."
+  },
+  "faq": {
+    "title": "Često postavljana pitanja",
+    "questions": [
+      {
+        "q": "Kako Cash Flow pomaže u upravljanju finansijama?",
+        "a": "Cash Flow vam omogućava da pratite svoje prihode, rashode i budžet na jednom mestu, pomažući vam da donosite informisane finansijske odluke."
+      },
+      {
+        "q": "Da li su moji finansijski podaci sigurni?",
+        "a": "Da! Koristimo naprednu enkripciju i sigurnosne mere kako bismo zaštitili vaše finansijske informacije."
+      },
+      {
+        "q": "Mogu li da izvezem svoje finansijske podatke?",
+        "a": "Apsolutno! Možete preuzeti svoje finansijske zapise u CSV formatu za spoljašnju upotrebu."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Pratite svoje finansije s lakoćom.",
+    "home": "Početna",
+    "features": "Funkcionalnosti",
+    "faq": "FAQ"
+  }
+}
