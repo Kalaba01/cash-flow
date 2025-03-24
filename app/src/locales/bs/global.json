@@ -2,9 +2,9 @@
   "login": {
     "title": "Prijava",
     "email": "Email",
-    "emailPlaceholder": "Unesite vaš email",
+    "emailPlaceholder": "Unesite Vaš email",
     "password": "Lozinka",
-    "passwordPlaceholder": "Unesite vašu lozinku",
+    "passwordPlaceholder": "Unesite Vašu lozinku",
     "signIn": "Prijavi se",
     "forgotPassword": "Zaboravljena lozinka?",
     "noAccount": "Nemate nalog?",
@@ -25,6 +25,13 @@
     "signUp": "Registrujte se",
     "alreadyAccount": "Već imate račun?",
     "signIn": "Prijavite se"
+  },
+  "forgotPassword": {
+    "title": "Resetuj Lozinku",
+    "description": "Unesite svoju e-mail adresu da biste dobili upute za resetovanje lozinke.",
+    "email": "Email Adresa",
+    "emailPlaceholder": "Unesite Vaš email",
+    "resetButton": "Pošalji Link za Reset"
   },
   "heroSection": {
     "title": "Preuzmite kontrolu nad svojim finansijama",

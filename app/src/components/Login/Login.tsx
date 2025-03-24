@@ -8,9 +8,10 @@ import { useTranslations } from "next-intl";
 interface LoginProps {
   onClose: () => void;
   onRegisterOpen: () => void;
+  onForgotPasswordOpen: () => void;
 }
 
-export default function Login({ onClose, onRegisterOpen }: LoginProps) {
+export default function Login({ onClose, onRegisterOpen, onForgotPasswordOpen }: LoginProps) {
   const t = useTranslations("login");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -59,7 +60,9 @@ export default function Login({ onClose, onRegisterOpen }: LoginProps) {
           </form>
 
           <p className={styles.forgotPassword}>
-            <span className={styles.clickable}>{t("forgotPassword")}</span>
+            <span className={styles.clickable} onClick={onForgotPasswordOpen}>
+              {t("forgotPassword")}
+            </span>
           </p>
 
           <p className={styles.registerLink}>

@@ -2,11 +2,12 @@
 import styles from "./TopBar.module.scss";
 import { useState } from "react";
 import { FaUser, FaMoon } from "react-icons/fa";
-import { Login, Register, Language } from "@/components";
+import { Login, Register, ForgotPassword, Language } from "@/components";
 
 export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
 
   return (
     <header className={styles.topbar}>
@@ -24,6 +25,10 @@ export default function TopBar() {
             setIsLoginOpen(false);
             setIsRegisterOpen(true);
           }}
+          onForgotPasswordOpen={() => {
+            setIsLoginOpen(false);
+            setIsForgotPasswordOpen(true);
+          }}
         />
       )}
 
@@ -35,6 +40,10 @@ export default function TopBar() {
             setIsLoginOpen(true);
           }}
         />
+      )}
+
+      {isForgotPasswordOpen && (
+        <ForgotPassword onClose={() => setIsForgotPasswordOpen(false)} />
       )}
     </header>
   );

@@ -26,6 +26,13 @@
     "alreadyAccount": "Already have an account?",
     "signIn": "Sign In"
   },
+  "forgotPassword": {
+    "title": "Reset Password",
+    "description": "Enter your email address to receive password reset instructions.",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "resetButton": "Send Reset Link"
+  },
   "heroSection": {
     "title": "Take Control of Your Finances",
     "description": "Track your income, expenses, and financial goals in one place."
