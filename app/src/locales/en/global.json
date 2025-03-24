@@ -1,4 +1,15 @@
 {
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "signIn": "Sign In",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up"
+  },
   "heroSection": {
     "title": "Take Control of Your Finances",
     "description": "Track your income, expenses, and financial goals in one place."

@@ -1,4 +1,15 @@
 {
+  "login": {
+    "title": "Prijava",
+    "email": "Email",
+    "emailPlaceholder": "Unesite vaš email",
+    "password": "Lozinka",
+    "passwordPlaceholder": "Unesite vašu lozinku",
+    "signIn": "Prijavi se",
+    "forgotPassword": "Zaboravljena lozinka?",
+    "noAccount": "Nemate nalog?",
+    "signUp": "Registrujte se"
+  },
   "heroSection": {
     "title": "Preuzmite kontrolu nad svojim finansijama",
     "description": "Pratite svoje prihode, troškove i finansijske ciljeve na jednom mestu."
