@@ -10,6 +10,22 @@
     "noAccount": "Don't have an account?",
     "signUp": "Sign Up"
   },
+  "register": {
+    "title": "Create an Account",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "signUp": "Sign Up",
+    "alreadyAccount": "Already have an account?",
+    "signIn": "Sign In"
+  },
   "heroSection": {
     "title": "Take Control of Your Finances",
     "description": "Track your income, expenses, and financial goals in one place."

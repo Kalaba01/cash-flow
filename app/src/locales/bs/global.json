@@ -10,6 +10,22 @@
     "noAccount": "Nemate nalog?",
     "signUp": "Registrujte se"
   },
+  "register": {
+    "title": "Kreirajte račun",
+    "firstName": "Ime",
+    "firstNamePlaceholder": "Unesite ime",
+    "lastName": "Prezime",
+    "lastNamePlaceholder": "Unesite prezime",
+    "email": "E-mail",
+    "emailPlaceholder": "Unesite svoj e-mail",
+    "password": "Lozinka",
+    "passwordPlaceholder": "Unesite lozinku",
+    "confirmPassword": "Potvrdite lozinku",
+    "confirmPasswordPlaceholder": "Ponovite lozinku",
+    "signUp": "Registrujte se",
+    "alreadyAccount": "Već imate račun?",
+    "signIn": "Prijavite se"
+  },
   "heroSection": {
     "title": "Preuzmite kontrolu nad svojim finansijama",
     "description": "Pratite svoje prihode, troškove i finansijske ciljeve na jednom mestu."
