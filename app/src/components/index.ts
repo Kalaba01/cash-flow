@@ -2,6 +2,7 @@ export { default as TopBar } from "./TopBar/TopBar";
 export { default as Login } from "./Login/Login";
 export { default as Register } from "./Register/Register";
 export { default as ForgotPassword } from "./ForgotPassword/ForgotPassword";
+export { default as Theme } from "./Theme/Theme";
 export { default as Language } from "./Language/Language";
 export { default as HeroSection} from "./HeroSection/HeroSection";
 export { default as Functionalities} from "./Functionalities/Functionalities";

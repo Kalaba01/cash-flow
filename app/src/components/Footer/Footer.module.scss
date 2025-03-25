@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
-  background-color: #222;
-  color: #fff;
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
   padding: 40px 0;
 
   .container {
@@ -23,7 +23,7 @@
 
     p {
       font-size: 1rem;
-      color: #bbb;
+      color: var(--footer-muted-text);
     }
   }
 
@@ -36,11 +36,11 @@
       li {
         a {
           font-size: 1rem;
-          color: #bbb;
+          color: var(--footer-muted-text);
           transition: color 0.3s ease;
 
           &:hover {
-            color: #fff;
+            color: var(--footer-text-color);
           }
         }
       }
@@ -53,11 +53,11 @@
 
     a {
       font-size: 1.5rem;
-      color: #bbb;
+      color: var(--footer-muted-text);
       transition: color 0.3s ease;
 
       &:hover {
-        color: #4caf50;
+        color: var(--primary-color);
       }
     }
   }

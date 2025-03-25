@@ -10,11 +10,11 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
-    color: #666;
+    color: var(--icon-color);
     transition: color 0.3s ease;
 
     &:hover {
-      color: #000;
+      color: var(--secondary-color-hover);
     }
 
     .globeIcon {
@@ -26,9 +26,9 @@
     position: absolute;
     top: 40px;
     right: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--dropdown-background);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px var(--shadow-color);
     border-radius: 8px;
     overflow: hidden;
     min-width: 130px;
@@ -47,19 +47,19 @@
         cursor: pointer;
         font-size: 14px;
         transition: all 0.2s ease;
-        color: #333;
+        color: var(--text-color);
         font-weight: 500;
 
         &:hover {
-          background: rgba(0, 0, 0, 0.05);
+          background: var(--hover-background);
         }
 
         &:active {
-          background: rgba(0, 0, 0, 0.1);
+          background: var(--active-background);
         }
 
         &:disabled {
-          color: #aaa;
+          color: var(--disabled-text-color);
           cursor: default;
           background: none;
         }

@@ -2,10 +2,10 @@
   font-size: 20px;
   cursor: pointer;
   transition: color 0.3s ease;
-  color: #666;
+  color: var(--icon-color);
 
   &:hover {
-    color: #000;
+    color: var(--secondary-color-hover);
   }
 }
 
@@ -15,7 +15,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,23 +23,23 @@
 }
 
 .modal {
-  background: white;
+  background: var(--modal-background);
   padding: 25px;
   border-radius: 10px;
   width: 350px;
   text-align: center;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px var(--shadow-color);
 
   .modalUserIcon {
     font-size: 50px;
-    color: #4caf50;
+    color: var(--primary-color);
     margin-bottom: 10px;
   }
 
   h2 {
     margin-bottom: 15px;
-    color: #333;
+    color: var(--text-color);
   }
 
   form {
@@ -51,15 +51,21 @@
       font-size: 14px;
       text-align: left;
       font-weight: bold;
-      color: #333;
+      color: var(--text-color);
     }
 
     input {
       padding: 10px;
-      border: 1px solid #ddd;
+      border: 1px solid var(--input-border);
       border-radius: 5px;
       font-size: 14px;
       width: 100%;
+      background: var(--input-background);
+      color: var(--text-color);
+
+      &::placeholder {
+        color: var(--text-color);
+      }
     }
 
     .passwordInput {
@@ -80,11 +86,11 @@
         border: none;
         cursor: pointer;
         font-size: 16px;
-        color: #666;
+        color: var(--icon-color);
         transition: color 0.3s ease;
 
         &:hover {
-          color: #333;
+          color: var(--text-color);
         }
       }
     }
@@ -92,15 +98,15 @@
     button {
       margin-top: 10px;
       padding: 10px;
-      background: #4caf50;
-      color: white;
+      background: var(--primary-color);
+      color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
 
       &:hover {
-        background: #388e3c;
+        background: var(--primary-hover);
       }
     }
   }
@@ -110,14 +116,14 @@
     font-size: 14px;
 
     span {
-      color: #1976d2;
+      color: var(--link-color);
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
       transition: color 0.3s ease;
 
       &:hover {
-        color: #1565c0;
+        color: var(--link-hover-color);
         text-decoration: underline;
       }
     }
@@ -128,7 +134,7 @@
     font-size: 14px;
 
     span {
-      color: #4caf50;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
@@ -148,11 +154,11 @@
     border: none;
     font-size: 18px;
     cursor: pointer;
-    color: #555;
+    color: var(--icon-color);
     transition: color 0.2s ease;
 
     &:hover {
-      color: black;
+      color: var(--text-color);
     }
   }
 }
