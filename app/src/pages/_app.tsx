@@ -1,4 +1,5 @@
 import "@/styles/globals.scss";
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { TopBar, Footer, GoTop } from "@/components";
 import { useInitializeLanguage } from "@/store/useLanguageStore";
@@ -11,6 +12,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <I18nProvider>
+      <Head>
+        <title>Cash Flow</title>
+        <meta name="description" content="Track your personal finances easily." />
+        <link rel="icon" href="/logo.png" />
+      </Head>
       <TopBar />
       <Component {...pageProps} />
       <Footer />
