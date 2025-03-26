@@ -1,9 +1,11 @@
 "use client";
 import styles from "./Login.module.scss";
+import axios from "axios";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { showNotification, NotificationContainer } from "@/components/Notification/Notification";
 
 interface LoginProps {
   onOpen: () => void;
@@ -13,15 +15,40 @@ interface LoginProps {
   isOpen: boolean;
 }
 
-export default function Login({
-  onOpen,
-  onClose,
-  onRegisterOpen,
-  onForgotPasswordOpen,
-  isOpen,
-}: LoginProps) {
+export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswordOpen, isOpen }: LoginProps) {
   const t = useTranslations("login");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:8000/auth/login", {
+        email,
+        password
+      });
+
+      localStorage.setItem("token", response.data.access_token);
+      showNotification({ message: t("loginSuccess"), type: "success" });
+
+      // TODO: Add redirect
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+    } catch (error: any) {
+      showNotification({
+        message: error.response?.data?.detail || "Login failed. Please try again.",
+        type: "error"
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -52,15 +79,23 @@ export default function Login({
 
               <h2>{t("title")}</h2>
 
-              <form>
+              <form onSubmit={handleLogin}>
                 <label>{t("email")}</label>
-                <input type="email" placeholder={t("emailPlaceholder")} required />
+                <input
+                  type="email"
+                  placeholder={t("emailPlaceholder")}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
 
                 <label>{t("password")}</label>
                 <div className={styles.passwordInput}>
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder={t("passwordPlaceholder")}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                   <button
@@ -72,7 +107,9 @@ export default function Login({
                   </button>
                 </div>
 
-                <button type="submit">{t("signIn")}</button>
+                <button type="submit" disabled={loading}>
+                  {loading ? t("loggingIn") : t("signIn")}
+                </button>
               </form>
 
               <p className={styles.forgotPassword}>
@@ -88,6 +125,7 @@ export default function Login({
                 </span>
               </p>
             </motion.div>
+            <NotificationContainer />
           </motion.div>
         )}
       </AnimatePresence>

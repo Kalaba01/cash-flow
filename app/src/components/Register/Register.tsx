@@ -1,11 +1,11 @@
 "use client";
 import styles from "./Register.module.scss";
+import axios from "axios";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { showNotification, NotificationContainer } from "@/components/Notification/Notification";
-import axios from "axios";
 
 interface RegisterProps {
   onClose: () => void;

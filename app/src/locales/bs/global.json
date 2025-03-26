@@ -8,7 +8,9 @@
     "signIn": "Prijavi se",
     "forgotPassword": "Zaboravljena lozinka?",
     "noAccount": "Nemate nalog?",
-    "signUp": "Registrujte se"
+    "signUp": "Registrujte se",
+    "loginSuccess": "Prijavljivanje uspješno! Preusmjeravanje...",
+    "loggingIn": "Prijavljivanje..."
   },
   "register": {
     "title": "Kreirajte račun",

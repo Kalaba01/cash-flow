@@ -8,7 +8,9 @@
     "signIn": "Sign In",
     "forgotPassword": "Forgot Password?",
     "noAccount": "Don't have an account?",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "loginSuccess": "Login successful! Redirecting...",
+    "loggingIn": "Logging In..."
   },
   "register": {
     "title": "Create an Account",
