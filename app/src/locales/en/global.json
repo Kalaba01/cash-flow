@@ -24,7 +24,10 @@
     "confirmPasswordPlaceholder": "Confirm your password",
     "signUp": "Sign Up",
     "alreadyAccount": "Already have an account?",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "registering": "Registering...",
+    "passwordMismatch": "Passwords do not match!",
+    "registrationSuccess": "Registration successful! Redirecting..."
   },
   "forgotPassword": {
     "title": "Reset Password",

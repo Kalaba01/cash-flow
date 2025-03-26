@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { showNotification, NotificationContainer } from "@/components/Notification/Notification";
+import axios from "axios";
 
 interface RegisterProps {
   onClose: () => void;
@@ -11,9 +13,53 @@ interface RegisterProps {
 }
 
 export default function Register({ onClose, onLoginOpen }: RegisterProps) {
+  const t = useTranslations("register");
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const t = useTranslations("register");
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (formData.password !== formData.confirmPassword) {
+      showNotification({ message: t("passwordMismatch"), type: "error" });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await axios.post("http://localhost:8000/auth/register", {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      showNotification({ message: t("registrationSuccess"), type: "success" });
+
+      setTimeout(() => {
+        onClose();
+        onLoginOpen();
+      }, 3000);
+    } catch (error: any) {
+      showNotification({ message: error.response?.data?.detail || "An error occurred.", type: "error" });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <motion.div
@@ -38,28 +84,56 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
 
         <h2>{t("title")}</h2>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.row}>
             <div className={styles.inputGroup}>
               <label>{t("firstName")}</label>
-              <input type="text" placeholder={t("firstNamePlaceholder")} required />
+              <input
+                type="text"
+                name="first_name"
+                placeholder={t("firstNamePlaceholder")}
+                value={formData.first_name}
+                onChange={handleChange}
+                required
+              />
             </div>
 
             <div className={styles.inputGroup}>
               <label>{t("lastName")}</label>
-              <input type="text" placeholder={t("lastNamePlaceholder")} required />
+              <input
+                type="text"
+                name="last_name"
+                placeholder={t("lastNamePlaceholder")}
+                value={formData.last_name}
+                onChange={handleChange}
+                required
+              />
             </div>
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t("email")}</label>
-            <input type="email" placeholder={t("emailPlaceholder")} required />
+            <input
+              type="email"
+              name="email"
+              placeholder={t("emailPlaceholder")}
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t("password")}</label>
             <div className={styles.passwordInput}>
-              <input type={showPassword ? "text" : "password"} placeholder={t("passwordPlaceholder")} required />
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder={t("passwordPlaceholder")}
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
               <button
                 type="button"
                 className={styles.eyeIcon}
@@ -75,7 +149,10 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
             <div className={styles.passwordInput}>
               <input
                 type={showConfirmPassword ? "text" : "password"}
+                name="confirmPassword"
                 placeholder={t("confirmPasswordPlaceholder")}
+                value={formData.confirmPassword}
+                onChange={handleChange}
                 required
               />
               <button
@@ -88,7 +165,9 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
             </div>
           </div>
 
-          <button type="submit">{t("signUp")}</button>
+          <button type="submit" disabled={loading}>
+            {loading ? t("registering") : t("signUp")}
+          </button>
         </form>
 
         <p className={styles.alreadyAccount}>
@@ -98,6 +177,8 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
           </span>
         </p>
       </motion.div>
+      
+      <NotificationContainer />
     </motion.div>
   );
 }

@@ -24,7 +24,10 @@
     "confirmPasswordPlaceholder": "Ponovite lozinku",
     "signUp": "Registrujte se",
     "alreadyAccount": "Već imate račun?",
-    "signIn": "Prijavite se"
+    "signIn": "Prijavite se",
+    "registering": "Registracija...",
+    "passwordMismatch": "Lozinke se ne podudaraju!",
+    "registrationSuccess": "Registracija uspješna! Preusmjeravanje..."
   },
   "forgotPassword": {
     "title": "Resetuj Lozinku",
