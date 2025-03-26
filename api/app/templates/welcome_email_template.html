@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Cash Flow</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7f9;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+      .email-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        max-width: 600px;
+        margin: auto;
+      }
+      .header {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+      .sub-header {
+        font-size: 18px;
+        color: #7f8c8d;
+        margin-bottom: 20px;
+      }
+      .content {
+        text-align: left;
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+      }
+      .button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: #ffffff;
+        padding: 12px 24px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .button:hover {
+        background-color: #388e3c;
+      }
+      .footer {
+        margin-top: 25px;
+        font-size: 14px;
+        color: #95a5a6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">Welcome to Cash Flow, {{ first_name }}!</div>
+      <div class="sub-header">
+        Your journey to better financial management starts here.
+      </div>
+      <div class="content">
+        <p>
+          We are excited to have you on board! Cash Flow is designed to empower
+          you with the tools you need to track, analyze, and optimize your
+          personal finances with ease.
+        </p>
+        <p>Here’s what you can do with Cash Flow:</p>
+        <ul>
+          <li>Monitor your income and expenses effortlessly.</li>
+          <li>Set and achieve your financial goals.</li>
+          <li>Gain valuable insights with real-time analytics.</li>
+          <li>Securely manage your financial data.</li>
+        </ul>
+        <p>
+          To get started, log in to your account and explore all the features
+          waiting for you.
+        </p>
+        <div class="button-container">
+          <a href="https://google.com/" class="button">Get Started</a>
+        </div>
+      </div>
+      <div class="footer">
+        If you have any questions or need assistance, feel free to
+        <a href="mailto:support@app.com">contact our support team</a>.<br />
+        Thank you for choosing Cash Flow. Let's achieve financial freedom
+        together!
+      </div>
+    </div>
+  </body>
+</html>

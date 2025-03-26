@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.db.database import engine
-from app.models.models import Base
+from app.db.database import engine, Base
+from app.routes.auth import router as auth_router
 
 app = FastAPI()
 
@@ -8,6 +8,8 @@ app = FastAPI()
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+app.include_router(auth_router)
 
 @app.get("/")
 def read_root():
