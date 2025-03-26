@@ -13,3 +13,7 @@ class UserCreate(UserBase):
 class UserResponse(UserBase):
     id: str
     model_config = ConfigDict(from_attributes=True)
+
+class LoginRequest(BaseModel):
+    email: EmailStr
+    password: str
