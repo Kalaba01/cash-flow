@@ -38,7 +38,7 @@ export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswor
 
       // TODO: Add redirect
       setTimeout(() => {
-        window.location.reload();
+        window.location.href = "http://localhost:3000/dashboard";
       }, 1500);
     } catch (error: any) {
       showNotification({
