@@ -25,7 +25,8 @@ async def override_get_db():
 async def test_db():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-    yield TestingSessionLocal
+    async with TestingSessionLocal() as session:
+        yield session
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
 
