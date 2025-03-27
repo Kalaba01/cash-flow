@@ -1,6 +1,6 @@
 import os
 import secrets
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta, timezone, UTC
 from typing import Optional
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -75,7 +75,7 @@ async def create_password_reset_token(db: AsyncSession, email: str):
     await db.commit()
 
     token = generate_reset_token()
-    expires_at = datetime.utcnow() + timedelta(hours=24)
+    expires_at = datetime.now(UTC) + timedelta(hours=24)
 
     reset_token = PasswordResetToken(user_id=user.id, token=token, expires_at=expires_at)
     db.add(reset_token)
@@ -88,7 +88,14 @@ async def verify_password_reset_token(db: AsyncSession, token: str):
     result = await db.execute(select(PasswordResetToken).filter(PasswordResetToken.token == token))
     reset_token = result.scalars().first()
 
-    if not reset_token or reset_token.expires_at < datetime.now(UTC):
+    if not reset_token:
+        return None
+
+    expires_at = reset_token.expires_at
+    if expires_at.tzinfo is None:
+        expires_at = expires_at.replace(tzinfo=timezone.utc)
+
+    if expires_at < datetime.now(timezone.utc):
         return None
 
     return reset_token
