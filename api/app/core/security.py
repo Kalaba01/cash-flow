@@ -1,4 +1,5 @@
 import os
+import secrets
 from datetime import datetime, timedelta, UTC
 from typing import Optional
 from jose import JWTError, jwt
@@ -7,9 +8,11 @@ from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from sqlalchemy import delete
 from dotenv import load_dotenv
 from app.db.database import get_db
 from app.models.user import User
+from app.models.password_reset import PasswordResetToken
 
 load_dotenv()
 
@@ -57,3 +60,35 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession
         raise credentials_exception
 
     return user
+
+def generate_reset_token() -> str:
+    return secrets.token_urlsafe(32)
+
+async def create_password_reset_token(db: AsyncSession, email: str):
+    result = await db.execute(select(User).filter(User.email == email))
+    user = result.scalars().first()
+
+    if not user:
+        return None
+
+    await db.execute(delete(PasswordResetToken).where(PasswordResetToken.user_id == user.id))
+    await db.commit()
+
+    token = generate_reset_token()
+    expires_at = datetime.utcnow() + timedelta(hours=24)
+
+    reset_token = PasswordResetToken(user_id=user.id, token=token, expires_at=expires_at)
+    db.add(reset_token)
+    await db.commit()
+    await db.refresh(reset_token)
+
+    return reset_token.token
+
+async def verify_password_reset_token(db: AsyncSession, token: str):
+    result = await db.execute(select(PasswordResetToken).filter(PasswordResetToken.token == token))
+    reset_token = result.scalars().first()
+
+    if not reset_token or reset_token.expires_at < datetime.now(UTC):
+        return None
+
+    return reset_token

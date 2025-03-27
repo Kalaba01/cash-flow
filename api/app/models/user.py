@@ -1,5 +1,6 @@
 import uuid
 from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 from app.db.database import Base
 
 class User(Base):
@@ -10,3 +11,5 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
+
+    reset_tokens = relationship("PasswordResetToken", back_populates="user", cascade="all, delete-orphan")
