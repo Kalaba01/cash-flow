@@ -36,7 +36,24 @@
     "description": "Unesite svoju e-mail adresu da biste dobili upute za resetovanje lozinke.",
     "email": "Email Adresa",
     "emailPlaceholder": "Unesite Vaš email",
-    "resetButton": "Pošalji Link za Reset"
+    "resetButton": "Pošalji Link za Reset",
+    "successMessage": "Ako e-mail postoji, poslat je link za resetovanje.",
+    "loading": "Učitavanje..."
+  },
+  "resetPassword": {
+    "title": "Resetujte Vašu Lozinku",
+    "description": "Unesite novu lozinku ispod.",
+    "newPassword": "Nova Lozinka",
+    "newPasswordPlaceholder": "Unesite novu lozinku",
+    "confirmPassword": "Potvrdite Novu Lozinku",
+    "confirmPasswordPlaceholder": "Potvrdite novu lozinku",
+    "resetButton": "Resetuj Lozinku",
+    "resetting": "Resetovanje...",
+    "successMessage": "Lozinka uspješno resetovana! Preusmjeravanje...",
+    "errorMessage": "Došlo je do greške!",
+    "invalidToken": "Nevažeći ili nedostajući token!",
+    "passwordsMismatch": "Lozinke se ne podudaraju!",
+    "newSameAsOld": "Nova lozinka se mora razlikovati od stare lozinke"
   },
   "heroSection": {
     "title": "Preuzmite kontrolu nad svojim finansijama",

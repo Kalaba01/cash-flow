@@ -36,7 +36,24 @@
     "description": "Enter your email address to receive password reset instructions.",
     "email": "Email Address",
     "emailPlaceholder": "Enter your email",
-    "resetButton": "Send Reset Link"
+    "resetButton": "Send Reset Link",
+    "successMessage": "If the email exists, a reset link has been sent.",
+    "loading": "Loading..."
+  },
+  "resetPassword": {
+    "title": "Reset Your Password",
+    "description": "Enter your new password below.",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Confirm new password",
+    "resetButton": "Reset Password",
+    "resetting": "Resetting...",
+    "successMessage": "Password reset successful! Redirecting...",
+    "errorMessage": "Something went wrong!",
+    "invalidToken": "Invalid or missing token!",
+    "passwordsMismatch": "Passwords do not match!",
+    "newSameAsOld": "New password must be different from old password"
   },
   "heroSection": {
     "title": "Take Control of Your Finances",

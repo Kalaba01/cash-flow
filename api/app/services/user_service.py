@@ -50,6 +50,9 @@ async def reset_user_password(db: AsyncSession, token: str, new_password: str):
 
     if not user:
         return False
+    
+    if verify_password(new_password, user.hashed_password):
+        raise HTTPException(status_code=400, detail="New password must be different from old password")
 
     user.hashed_password = get_password_hash(new_password)
 

@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.schemas.token import Token
 from app.services.user_service import authenticate_user, create_user, get_user_by_email, reset_user_password
 from app.core.security import ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, create_password_reset_token
-from app.schemas.user import UserCreate, UserResponse, LoginRequest
+from app.schemas.user import UserCreate, UserResponse, LoginRequest, ForgotPasswordRequest, ResetPasswordRequest
 from app.services.email_service import send_email
 from app.db.database import get_db
 
@@ -33,17 +33,17 @@ async def login(request: LoginRequest, db: AsyncSession = Depends(get_db)):
     return {"access_token": access_token, "token_type": "bearer"}
 
 @router.post("/forgot-password")
-async def forgot_password(email: str, db: AsyncSession = Depends(get_db)):
-    token = await create_password_reset_token(db, email)
+async def forgot_password(request: ForgotPasswordRequest, db: AsyncSession = Depends(get_db)):
+    token = await create_password_reset_token(db, request.email)
 
     if not token:
-        raise HTTPException(status_code=404, detail="Email not found")
+        return {"message": "If the email exists, a reset link has been sent."}
 
     reset_link = f"http://localhost:3000/reset-password?token={token}"
-    user = await get_user_by_email(db, email)
+    user = await get_user_by_email(db, request.email)
 
     await send_email(
-        to_email=email,
+        to_email=request.email,
         subject="Password Reset Request",
         template_name="reset_password",
         context={
@@ -55,8 +55,8 @@ async def forgot_password(email: str, db: AsyncSession = Depends(get_db)):
     return {"message": "If the email exists, a reset link has been sent."}
 
 @router.post("/reset-password")
-async def reset_password(token: str, new_password: str, db: AsyncSession = Depends(get_db)):
-    success = await reset_user_password(db, token, new_password)
+async def reset_password(request: ResetPasswordRequest, db: AsyncSession = Depends(get_db)):
+    success = await reset_user_password(db, request.token, request.new_password)
 
     if not success:
         raise HTTPException(status_code=400, detail="Invalid or expired token")

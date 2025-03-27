@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { TopBar, Footer, GoTop } from "@/components";
 import { useInitializeLanguage } from "@/store/useLanguageStore";
 import { useInitializeTheme } from "@/store/useThemeStore";
+import { NotificationContainer } from "@/components/Notification/Notification";
 import I18nProvider from "@/providers/I18nProvider";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -21,6 +22,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <Footer />
       <GoTop />
+      <NotificationContainer />
     </I18nProvider>
   );
 }

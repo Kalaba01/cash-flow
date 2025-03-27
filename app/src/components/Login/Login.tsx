@@ -5,7 +5,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
-import { showNotification, NotificationContainer } from "@/components/Notification/Notification";
+import { showNotification } from "@/components/Notification/Notification";
 
 interface LoginProps {
   onOpen: () => void;
@@ -125,7 +125,6 @@ export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswor
                 </span>
               </p>
             </motion.div>
-            <NotificationContainer />
           </motion.div>
         )}
       </AnimatePresence>
