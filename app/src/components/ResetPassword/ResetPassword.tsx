@@ -2,6 +2,7 @@
 import styles from "./ResetPassword.module.scss";
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { showNotification } from "@/components/Notification/Notification";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -10,6 +11,7 @@ import { useTranslations } from "next-intl";
 export default function ResetPassword() {
   const t = useTranslations("resetPassword");
   const searchParams = useSearchParams();
+  const router = useRouter();
   const token = searchParams.get("token");
 
   const [newPassword, setNewPassword] = useState("");
@@ -54,7 +56,7 @@ export default function ResetPassword() {
     } finally {
       setLoading(false);
       setTimeout(() => {
-        window.location.href = "http://localhost:3000/";
+        router.push("/")
       }, 3100)
     }
   };

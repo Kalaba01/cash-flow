@@ -2,6 +2,7 @@
 import styles from "./Login.module.scss";
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
@@ -17,6 +18,7 @@ interface LoginProps {
 
 export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswordOpen, isOpen }: LoginProps) {
   const t = useTranslations("login");
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,11 +37,6 @@ export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswor
 
       localStorage.setItem("token", response.data.access_token);
       showNotification({ message: t("loginSuccess"), type: "success" });
-
-      // TODO: Add redirect
-      setTimeout(() => {
-        window.location.href = "http://localhost:3000/dashboard";
-      }, 1500);
     } catch (error: any) {
       showNotification({
         message: error.response?.data?.detail || "Login failed. Please try again.",
@@ -47,6 +44,10 @@ export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswor
       });
     } finally {
       setLoading(false);
+      setTimeout(() => {
+        onClose();
+        router.push("/dashboard")
+      }, 1500);
     }
   };
 

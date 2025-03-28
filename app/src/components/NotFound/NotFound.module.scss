@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--background-color);
+  transition: background-color 0.3s ease-in-out;
+  padding: 20px;
+
+  .card {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px var(--shadow-color);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+
+    .iconWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      box-shadow: 0px 4px 8px var(--shadow-color);
+
+      .icon {
+        font-size: 40px;
+        color: white;
+      }
+    }
+
+    h2 {
+      color: var(--text-color);
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--muted-text-color);
+      font-size: 15px;
+      margin-bottom: 2rem;
+    }
+
+    .homeButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      background-color: var(--secondary-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+
+      &:hover {
+        background-color: var(--secondary-color-hover);
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 10px var(--shadow-color);
+      }
+
+      &:active {
+        background-color: var(--button-active);
+        transform: scale(0.98);
+      }
+
+      .buttonIcon {
+        font-size: 18px;
+      }
+    }
+  }
+}

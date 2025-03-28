@@ -12,3 +12,4 @@ export { default as FAQCard } from "./FAQCard/FAQCard";
 export { default as Footer } from "./Footer/Footer";
 export { default as GoTop } from "./GoTop/GoTop";
 export { default as Unauthorized } from "./Unauthorized/Unauthorized";
+export { default as NotFound } from "./NotFound/NotFound";

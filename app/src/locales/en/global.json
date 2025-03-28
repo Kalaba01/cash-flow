@@ -96,5 +96,10 @@
     "title": "Access Denied",
     "description": "You do not have permission to view this page. If you believe this is a mistake, please contact support.",
     "goHome": "Return to Home"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist. It might have been moved or deleted.",
+    "goHome": "Return to Home"
   }
 }
