@@ -1,12 +1,14 @@
 "use client";
-import { HeroSection, Functionalities, FAQ} from "@/components";
+import { HeroSection, Functionalities, FAQ, PublicRoute } from "@/components";
 
 export default function LandingPage() {
   return (
     <>
-      <HeroSection />
-      <Functionalities />
-      <FAQ />
+      <PublicRoute>
+        <HeroSection />
+        <Functionalities />
+        <FAQ />
+      </PublicRoute>
     </>
   );
 }

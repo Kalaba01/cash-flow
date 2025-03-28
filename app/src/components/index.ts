@@ -11,5 +11,8 @@ export { default as FAQ } from "./FAQ/FAQ";
 export { default as FAQCard } from "./FAQCard/FAQCard";
 export { default as Footer } from "./Footer/Footer";
 export { default as GoTop } from "./GoTop/GoTop";
+export { default as Loading } from "./Loading/Loading";
 export { default as Unauthorized } from "./Unauthorized/Unauthorized";
 export { default as NotFound } from "./NotFound/NotFound";
+export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+export { default as PublicRoute } from "./PublicRoute/PublicRoute";

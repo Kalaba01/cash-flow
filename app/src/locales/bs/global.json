@@ -101,5 +101,8 @@
     "title": "Stranica Nije Pronađena",
     "description": "Stranica koju tražite ne postoji. Možda je premještena ili obrisana.",
     "goHome": "Povratak na Početnu"
+  },
+  "loading": {
+    "loading": "Učitavanje"
   }
 }

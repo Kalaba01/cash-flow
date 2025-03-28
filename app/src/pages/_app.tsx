@@ -18,9 +18,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Track your personal finances easily." />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <TopBar />
-      <Component {...pageProps} />
-      <Footer />
+      <div className="wrapper">
+        
+        <TopBar />
+        <main className="content">
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </div>
       <GoTop />
       <NotificationContainer />
     </I18nProvider>
