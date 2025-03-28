@@ -91,5 +91,10 @@
     "home": "Home",
     "features": "Features",
     "faq": "FAQ"
+  },
+  "unauthorized": {
+    "title": "Access Denied",
+    "description": "You do not have permission to view this page. If you believe this is a mistake, please contact support.",
+    "goHome": "Return to Home"
   }
 }

@@ -91,5 +91,10 @@
     "home": "Početna",
     "features": "Funkcionalnosti",
     "faq": "FAQ"
+  },
+  "unauthorized": {
+    "title": "Pristup Odbijen",
+    "description": "Nemate dozvolu za pregled ove stranice. Ako mislite da je ovo greška, kontaktirajte podršku.",
+    "goHome": "Povratak na Početnu"
   }
 }
