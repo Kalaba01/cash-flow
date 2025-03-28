@@ -1,0 +1,17 @@
+.logoutButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  transition: transform 0.2s ease-in-out;
+
+  .icon {
+    font-size: 22px;
+    color: var(--text-color);
+    transition: color 0.2s ease-in-out;
+  }
+
+  &:hover .icon {
+    color: var(--secondary-color-hover);
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 import styles from "./TopBar.module.scss";
 import { useState } from "react";
-import { Login, Register, ForgotPassword, Theme, Language } from "@/components";
+import { Login, Register, ForgotPassword, Theme, Language, Logout } from "@/components";
 
 export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -27,6 +27,7 @@ export default function TopBar() {
         />
         <Theme />
         <Language />
+        <Logout />
       </div>
 
       {isRegisterOpen && (
