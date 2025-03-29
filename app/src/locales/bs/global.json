@@ -104,5 +104,12 @@
   },
   "loading": {
     "loading": "Učitavanje"
+  },
+  "hamburgerMenu": {
+    "dashboard": "Kontrolna tabla",
+    "profile": "Profil",
+    "income": "Prihodi",
+    "expense": "Troškovi",
+    "goal": "Ciljevi"
   }
 }

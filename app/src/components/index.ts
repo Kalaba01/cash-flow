@@ -6,6 +6,7 @@ export { default as ResetPassword } from "./ResetPassword/ResetPassword";
 export { default as Theme } from "./Theme/Theme";
 export { default as Language } from "./Language/Language";
 export { default as Logout } from "./Logout/Logout";
+export { default as HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
 export { default as HeroSection} from "./HeroSection/HeroSection";
 export { default as Functionalities} from "./Functionalities/Functionalities";
 export { default as FAQ } from "./FAQ/FAQ";

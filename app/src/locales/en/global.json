@@ -104,5 +104,12 @@
   },
   "loading": {
     "loading": "Loading"
+  },
+  "hamburgerMenu": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "income": "Income",
+    "expense": "Expense",
+    "goal": "Goal"
   }
 }

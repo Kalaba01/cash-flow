@@ -2,7 +2,7 @@
 import styles from "./TopBar.module.scss";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Login, Register, ForgotPassword, Theme, Language, Logout } from "@/components";
+import { Login, Register, ForgotPassword, HamburgerMenu, Theme, Language, Logout } from "@/components";
 
 export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -15,6 +15,7 @@ export default function TopBar() {
 
   return (
     <header className={styles.topbar}>
+      {isDashboardPage && <HamburgerMenu />}
       <h1 className={styles.title}>Cash Flow</h1>
       <div className={styles.icons}>
       {isLandingPage && (
