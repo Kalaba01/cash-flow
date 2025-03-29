@@ -1,0 +1,186 @@
+.listContainer {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px var(--shadow-color);
+  transition: all 0.3s ease-in-out;
+  width: 55%;
+  margin: 2rem auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 18px;
+      color: var(--text-color);
+    }
+
+    .addButton {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &:hover {
+        background: var(--primary-hover);
+      }
+    }
+  }
+
+  p {
+    color: var(--muted-text-color);
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .listItem {
+    display: flex;
+    align-items: center;
+    background: var(--input-background);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0px 3px 10px var(--shadow-color);
+    transition: all 0.3s ease-in-out;
+    justify-content: space-between;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .iconWrapper {
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      margin-top: -2.8rem;
+      margin-right: 0.8rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--icon-background);
+      color: var(--primary-color);
+    }
+
+    .details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .category {
+        font-weight: bold;
+        color: var(--text-color);
+      }
+
+      .amount {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--secondary-color);
+      }
+
+      .date {
+        font-size: 14px;
+        color: var(--muted-text-color);
+      }
+
+      .description {
+        font-size: 12px;
+        color: var(--muted-text-color);
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 5px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .editButton {
+        color: var(--secondary-color);
+
+        &:hover {
+          color: var(--secondary-color-hover);
+        }
+      }
+
+      .deleteButton {
+        color: rgb(194, 0, 0);
+
+        &:hover {
+          color: darkred;
+        }
+      }
+    }
+  }
+
+  .salary .iconWrapper {
+    background-color: #dff0d8;
+    color: #4caf50;
+  }
+
+  .food .iconWrapper {
+    background-color: #ffe0b2;
+    color: #ff9800;
+  }
+
+  .transport .iconWrapper {
+    background-color: #bbdefb;
+    color: #2196f3;
+  }
+
+  .housing .iconWrapper {
+    background-color: #d1c4e9;
+    color: #673ab7;
+  }
+
+  .gifts .iconWrapper {
+    background-color: #f8bbd0;
+    color: #e91e63;
+  }
+
+  .shopping .iconWrapper {
+    background-color: #ffccbc;
+    color: #f44336;
+  }
+
+  .savings .iconWrapper {
+    background-color: #b2dfdb;
+    color: #009688;
+  }
+
+  .default .iconWrapper {
+    background-color: var(--text-muted);
+    color: var(--text-color);
+  }
+}

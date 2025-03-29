@@ -8,14 +8,15 @@ export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
+  const sidebarRoutes = ["/dashboard", "/income"];
 
   const pathname = usePathname();
   const isLandingPage = pathname === "/";
-  const isDashboardPage = pathname.startsWith("/dashboard");
+  const isSidebarPage = sidebarRoutes.some(route => pathname.startsWith(route));
 
   return (
     <header className={styles.topbar}>
-      {isDashboardPage && <HamburgerMenu />}
+      { isSidebarPage && <HamburgerMenu />}
       <h1 className={styles.title}>Cash Flow</h1>
       <div className={styles.icons}>
       {isLandingPage && (
@@ -37,7 +38,7 @@ export default function TopBar() {
         <Theme />
         <Language />
 
-        {isDashboardPage && <Logout />}
+        {isSidebarPage && <Logout />}
       </div>
 
       {isRegisterOpen && (

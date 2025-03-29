@@ -111,5 +111,17 @@
     "income": "Prihodi",
     "expense": "Troškovi",
     "goal": "Ciljevi"
+  },
+  "incomeCard": {
+    "title": "Pregled prihoda",
+    "noData": "Nema dostupnih podataka o prihodima."
+  },
+  "incomeList": {
+    "title": "Transakcije prihoda",
+    "addIncome": "Dodaj prihod",
+    "addIncomeDescription": "Unesite detalje prihoda",
+    "loading": "Učitavanje...",
+    "noData": "Nema dostupnih podataka o prihodima",
+    "close": "Zatvori"
   }
 }

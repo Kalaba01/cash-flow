@@ -18,3 +18,5 @@ export { default as Unauthorized } from "./Unauthorized/Unauthorized";
 export { default as NotFound } from "./NotFound/NotFound";
 export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 export { default as PublicRoute } from "./PublicRoute/PublicRoute";
+export { default as IncomeCard } from "./IncomeCard/IncomeCard";
+export { default as IncomeList } from "./IncomeList/IncomeList";

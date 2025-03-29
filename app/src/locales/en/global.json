@@ -111,5 +111,17 @@
     "income": "Income",
     "expense": "Expense",
     "goal": "Goal"
+  },
+  "incomeCard": {
+    "title": "Income Overview",
+    "noData": "No income data found."
+  },
+  "incomeList": {
+    "title": "Income Transactions",
+    "addIncome": "Add Income",
+    "addIncomeDescription": "Enter income details",
+    "loading": "Loading...",
+    "noData": "No income records found",
+    "close": "Close"
   }
 }
