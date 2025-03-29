@@ -13,3 +13,4 @@ class User(Base):
     last_name = Column(String, nullable=False)
 
     reset_tokens = relationship("PasswordResetToken", back_populates="user", cascade="all, delete-orphan")
+    incomes = relationship("Income", back_populates="user", cascade="all, delete-orphan")
