@@ -14,3 +14,4 @@ class User(Base):
 
     reset_tokens = relationship("PasswordResetToken", back_populates="user", cascade="all, delete-orphan")
     incomes = relationship("Income", back_populates="user", cascade="all, delete-orphan")
+    expenses = relationship("Expense", back_populates="user", cascade="all, delete-orphan")
