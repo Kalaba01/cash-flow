@@ -9,6 +9,7 @@ import httpx
 from httpx import ASGITransport
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 from app.db.database import get_db, Base
 from app.main import app
 from app.models.user import User
@@ -16,7 +17,13 @@ from app.core.security import get_current_user
 
 DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 
-engine = create_async_engine(DATABASE_URL, echo=True, future=True)
+engine = create_async_engine(
+    DATABASE_URL,
+    echo=True,
+    future=True,
+    connect_args={"check_same_thread": False},
+    poolclass=StaticPool
+)
 TestingSessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 
 async def override_get_db():
@@ -24,7 +31,12 @@ async def override_get_db():
         yield session
 
 async def override_get_current_user():
-    return User(id="test-user-id", email="test@example.com")
+    return User(
+        id="test-user-id",
+        email="test@example.com",
+        first_name="Test",
+        last_name="User"
+    )
 
 app.dependency_overrides[get_current_user] = override_get_current_user
 
