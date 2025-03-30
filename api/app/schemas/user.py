@@ -14,6 +14,13 @@ class UserResponse(UserBase):
     id: str
     model_config = ConfigDict(from_attributes=True)
 
+class UserUpdate(UserBase):
+    pass
+
+class ChangePasswordRequest(BaseModel):
+    old_password: str
+    new_password: str
+
 class LoginRequest(BaseModel):
     email: EmailStr
     password: str

@@ -3,7 +3,7 @@ from sqlalchemy import delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.models.user import User
-from app.schemas.user import UserCreate
+from app.schemas.user import UserCreate, UserUpdate, ChangePasswordRequest
 from app.services.email_service import send_email
 from app.core.security import verify_password, get_password_hash, verify_password_reset_token
 
@@ -60,3 +60,30 @@ async def reset_user_password(db: AsyncSession, token: str, new_password: str):
     await db.commit()
     await db.refresh(user)
     return True
+
+async def update_user_profile(db: AsyncSession, user_id: str, user_data: UserUpdate):
+    result = await db.execute(select(User).filter(User.id == user_id))
+    user = result.scalars().first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    user.first_name = user_data.first_name
+    user.last_name = user_data.last_name
+    user.email = user_data.email
+
+    await db.commit()
+    await db.refresh(user)
+    return user
+
+async def change_user_password(db: AsyncSession, user: User, request: ChangePasswordRequest):
+    if not verify_password(request.old_password, user.hashed_password):
+        raise HTTPException(status_code=400, detail="Incorrect old password")
+
+    if verify_password(request.new_password, user.hashed_password):
+        raise HTTPException(status_code=400, detail="New password must be different from the old password")
+
+    user.hashed_password = get_password_hash(request.new_password)
+
+    await db.commit()
+    return {"message": "Password successfully changed"}

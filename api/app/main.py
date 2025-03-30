@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import engine, Base
 from app.routes.auth import router as auth_router
+from app.routes.profile import router as profile_router
 from app.routes.income import router as income_router
 from app.routes.expense import router as expense_router
 from contextlib import asynccontextmanager
@@ -23,6 +24,7 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(profile_router)
 app.include_router(income_router)
 app.include_router(expense_router)
 
