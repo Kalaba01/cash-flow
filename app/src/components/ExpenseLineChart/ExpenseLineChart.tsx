@@ -1,25 +1,25 @@
 "use client";
-import styles from "./IncomeCard.module.scss";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import styles from "./ExpenseLineChart.module.scss";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Loading } from "@/components/";
-import { FaChartBar } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
-interface IncomeItem {
+interface ExpenseItem {
   category_name: string;
   amount: number;
   date: string;
   description?: string;
 }
 
-interface IncomeCardProps {
-  incomeData: IncomeItem[];
+interface ExpenseLineChartProps {
+  expenseData: ExpenseItem[];
   loading: boolean;
 }
 
 interface CustomTooltipProps {
-    active?: boolean;
-    payload?: { payload: IncomeItem }[];
+  active?: boolean;
+  payload?: { payload: ExpenseItem }[];
 }
 
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
@@ -35,17 +35,17 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
-export default function IncomeCard({ incomeData, loading }: IncomeCardProps) {
-  const t = useTranslations("incomeCard");
+export default function ExpenseLineChart({ expenseData, loading }: ExpenseLineChartProps) {
+  const t = useTranslations("ExpenseLineChart");
 
   const groupedData: Record<string, { amount: number; description?: string }> = {};
 
-  incomeData.forEach((income) => {
-    const date = new Date(income.date).toLocaleDateString();
+  expenseData.forEach((expense) => {
+    const date = new Date(expense.date).toLocaleDateString();
     if (!groupedData[date]) {
-      groupedData[date] = { amount: 0, description: income.description };
+      groupedData[date] = { amount: 0, description: expense.description };
     }
-    groupedData[date].amount += income.amount;
+    groupedData[date].amount += expense.amount;
   });
 
   const chartData = Object.entries(groupedData).map(([date, data]) => ({
@@ -57,7 +57,7 @@ export default function IncomeCard({ incomeData, loading }: IncomeCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <FaChartBar className={styles.icon} />
+        <FaChartLine className={styles.icon} />
         <h3>{t("title")}</h3>
       </div>
       {loading ? (
@@ -66,12 +66,12 @@ export default function IncomeCard({ incomeData, loading }: IncomeCardProps) {
         <p>{t("noData")}</p>
       ) : (
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chartData}>
+          <LineChart data={chartData}>
             <XAxis dataKey="date" stroke="#555" />
             <YAxis />
             <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="amount" fill="#4caf50" barSize={40} radius={[5, 5, 0, 0]} />
-          </BarChart>
+            <Line type="monotone" dataKey="amount" stroke="#f44336" strokeWidth={2} />
+          </LineChart>
         </ResponsiveContainer>
       )}
     </div>

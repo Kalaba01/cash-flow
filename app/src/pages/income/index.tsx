@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IncomeCard, IncomeList } from "@/components";
+import { IncomeBarChart, TransactionList } from "@/components";
 import { showNotification } from "@/components/Notification/Notification";
 
 interface IncomeItem {
@@ -37,8 +37,14 @@ export default function IncomePage() {
 
   return (
     <div>
-      <IncomeCard incomeData={incomeData} loading={loading} />
-      <IncomeList incomeData={incomeData} loading={loading} />
+      <IncomeBarChart incomeData={incomeData} loading={loading} />
+      <TransactionList 
+        title="incomeList.title"
+        addButtonTitle="incomeList.addIncome"
+        type="income"
+        data={incomeData}
+        loading={loading}
+      />
     </div>
   );
 }

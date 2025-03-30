@@ -112,7 +112,7 @@
     "expense": "Troškovi",
     "goal": "Ciljevi"
   },
-  "incomeCard": {
+  "IncomeBarChart": {
     "title": "Pregled prihoda",
     "noData": "Nema dostupnih podataka o prihodima."
   },
@@ -123,5 +123,15 @@
     "loading": "Učitavanje...",
     "noData": "Nema dostupnih podataka o prihodima",
     "close": "Zatvori"
+  },
+  "ExpenseLineChart": {
+    "title": "Pregled troškova",
+    "noData": "Nema podataka o troškovima."
+  },
+  "expenseList": {
+    "title": "Transakcije troškova",
+    "addExpense": "Dodaj trošak",
+    "loading": "Učitavanje...",
+    "noData": "Nema evidentiranih troškova."
   }
 }

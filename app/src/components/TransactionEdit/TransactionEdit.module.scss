@@ -1,0 +1,13 @@
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 5px;
+  transition: color 0.3s ease-in-out;
+  color: var(--secondary-color);
+
+  &:hover {
+    color: var(--secondary-color-hover);
+  }
+}

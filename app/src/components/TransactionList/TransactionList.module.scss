@@ -17,25 +17,6 @@
       font-size: 18px;
       color: var(--text-color);
     }
-
-    .addButton {
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease-in-out;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-
-      &:hover {
-        background: var(--primary-hover);
-      }
-    }
   }
 
   p {
@@ -70,13 +51,12 @@
       width: 40px;
       height: 40px;
       display: flex;
-      margin-top: -2.8rem;
-      margin-right: 0.8rem;
       align-items: center;
       justify-content: center;
+      margin-top: -2.8rem;
+      margin-right: 0.8rem;
       border-radius: 50%;
       background: var(--icon-background);
-      color: var(--primary-color);
     }
 
     .details {
@@ -116,31 +96,7 @@
     .actions {
       display: flex;
       gap: 10px;
-
-      button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 5px;
-        transition: color 0.3s ease-in-out;
-      }
-
-      .editButton {
-        color: var(--secondary-color);
-
-        &:hover {
-          color: var(--secondary-color-hover);
-        }
-      }
-
-      .deleteButton {
-        color: rgb(194, 0, 0);
-
-        &:hover {
-          color: darkred;
-        }
-      }
+      margin-top: -2.8rem;
     }
   }
 

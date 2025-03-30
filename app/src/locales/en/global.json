@@ -112,7 +112,7 @@
     "expense": "Expense",
     "goal": "Goal"
   },
-  "incomeCard": {
+  "IncomeBarChart": {
     "title": "Income Overview",
     "noData": "No income data found."
   },
@@ -123,5 +123,15 @@
     "loading": "Loading...",
     "noData": "No income records found",
     "close": "Close"
+  },
+  "ExpenseLineChart": {
+    "title": "Expense Overview",
+    "noData": "No expense data found."
+  },
+  "expenseList": {
+    "title": "Expense Transactions",
+    "addExpense": "Add Expense",
+    "loading": "Loading...",
+    "noData": "No expenses recorded."
   }
 }
