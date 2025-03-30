@@ -112,6 +112,30 @@
     "expense": "Expense",
     "goal": "Goal"
   },
+  "profile": {
+    "title": "My Profile",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "changePassword": "Change Password",
+    "editProfile": "Edit Profile",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "passwordMismatch": "Passwords do not match",
+    "passwordUpdated": "Password updated successfully!",
+    "passwordUpdateFailed": "Failed to update password.",
+    "loading": "Processing...",
+    "incorrectOldPassword": "The old password is incorrect.",
+    "passwordSameAsOld": "New password must be different from the old password.",
+    "serverError": "Server error. Please try again later.",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "profileUpdated": "Profile updated successfully.",
+    "profileUpdateFailed": "Failed to update profile. Please try again."
+  },
   "IncomeBarChart": {
     "title": "Income Overview",
     "noData": "No income data found."

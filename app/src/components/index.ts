@@ -24,3 +24,6 @@ export { default as TransactionAdd } from "./TransactionAdd/TransactionAdd";
 export { default as TransactionList } from "./TransactionList/TransactionList";
 export { default as TransactionEdit } from "./TransactionEdit/TransactionEdit";
 export { default as TransactionDelete } from "./TransactionDelete/TransactionDelete";
+export { default as ProfileOverview } from "./ProfileOverview/ProfileOverview";
+export { default as ProfileChangePassword } from "./ProfileChangePassword/ProfileChangePassword";
+export { default as ProfileEdit } from "./ProfileEdit/ProfileEdit";

@@ -1,0 +1,106 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px var(--shadow-color);
+  width: 400px;
+  max-width: 90%;
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h2 {
+      font-size: 18px;
+      color: var(--text-color);
+    }
+
+    .closeIcon {
+      font-size: 24px;
+      color: var(--error-color);
+      cursor: pointer;
+
+      &:hover {
+        color: darkred;
+      }
+    }
+  }
+
+  .inputGroup {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: var(--text-color);
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--input-border);
+      border-radius: 6px;
+      background: var(--input-background);
+      color: var(--text-color);
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .saveButton {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: var(--primary-hover);
+      }
+
+      &:disabled {
+        background: var(--muted-text-color);
+        cursor: not-allowed;
+      }
+    }
+
+    .cancelButton {
+      background: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: darkred;
+      }
+    }
+  }
+}

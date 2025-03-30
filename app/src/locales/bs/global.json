@@ -112,6 +112,30 @@
     "expense": "Troškovi",
     "goal": "Ciljevi"
   },
+  "profile": {
+    "title": "Moj Profil",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "email": "Email",
+    "changePassword": "Promijeni lozinku",
+    "editProfile": "Uredi profil",
+    "oldPassword": "Stara lozinka",
+    "newPassword": "Nova lozinka",
+    "confirmPassword": "Potvrdi lozinku",
+    "updatePassword": "Ažuriraj lozinku",
+    "passwordMismatch": "Lozinke se ne podudaraju",
+    "passwordUpdated": "Lozinka uspješno promijenjena!",
+    "passwordUpdateFailed": "Neuspješna promjena lozinke.",
+    "loading": "Obrada...",
+    "incorrectOldPassword": "Stara lozinka je netačna.",
+    "passwordSameAsOld": "Nova lozinka mora biti drugačija od stare lozinke.",
+    "serverError": "Greška na serveru. Pokušajte ponovo kasnije.",
+    "saveChanges": "Sačuvaj promjene",
+    "saving": "Čuvanje...",
+    "cancel": "Otkaži",
+    "profileUpdated": "Profil uspješno ažuriran.",
+    "profileUpdateFailed": "Greška pri ažuriranju profila. Pokušajte ponovo."
+  },
   "IncomeBarChart": {
     "title": "Pregled prihoda",
     "noData": "Nema dostupnih podataka o prihodima."
