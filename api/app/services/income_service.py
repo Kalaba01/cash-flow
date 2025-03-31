@@ -1,6 +1,6 @@
 from uuid import uuid4
 from typing import List
-from datetime import datetime
+from datetime import datetime, UTC
 from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
@@ -17,7 +17,7 @@ async def create_new_income(db: AsyncSession, income_data: IncomeCreate, user_id
         user_id=user_id,
         category_name=income_data.category_name,
         amount=income_data.amount,
-        date=income_data.date or datetime.utcnow(),
+        date=income_data.date or datetime.now(UTC),
         description=income_data.description
     )
     db.add(new_income)

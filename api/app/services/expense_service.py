@@ -1,5 +1,5 @@
 from uuid import uuid4
-from datetime import datetime
+from datetime import datetime, UTC
 from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
@@ -16,7 +16,7 @@ async def create_new_expense(db: AsyncSession, expense_data: ExpenseCreate, user
         user_id=user_id,
         category_name=expense_data.category_name,
         amount=expense_data.amount,
-        date=expense_data.date or datetime.utcnow(),
+        date=expense_data.date or datetime.now(UTC),
         description=expense_data.description
     )
     db.add(new_expense)

@@ -1,7 +1,7 @@
 from uuid import uuid4
 from typing import List
 from fastapi import HTTPException
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import aliased
@@ -13,7 +13,7 @@ from app.schemas.goal import GoalCreate, GoalUpdate, GoalResponse
 
 async def calculate_current_amount(db: AsyncSession, category_name: str, goal_type: str, user_id: str, period: str) -> float:
     model = Income if goal_type == "income" else Expense
-    now = datetime.utcnow()
+    now = datetime.now(UTC)
 
     start_date = None
     if period == "week":
@@ -66,7 +66,7 @@ async def create_goal(db: AsyncSession, goal_data: GoalCreate, user_id: str) -> 
         amount=goal_data.amount,
         goal_type=goal_data.goal_type,
         period=goal_data.period,
-        created_at=datetime.utcnow()
+        created_at=datetime.now(UTC)
     )
 
     db.add(new_goal)
@@ -92,7 +92,7 @@ async def update_goal(db: AsyncSession, goal_id: str, goal_data: GoalUpdate, use
     if not goal or goal.user_id != user_id:
         raise HTTPException(status_code=404, detail="Goal not found")
 
-    for key, value in goal_data.dict(exclude_unset=True).items():
+    for key, value in goal_data.model_dump(exclude_unset=True).items():
         setattr(goal, key, value)
 
     await db.commit()
