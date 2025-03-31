@@ -165,5 +165,33 @@
     "confirm": "Potvrdi",
     "success": "Transakcija je uspješno obrisana!",
     "error": "Brisanje transakcije nije uspjelo."
+  },
+  "goal": {
+    "title": "Ciljevi",
+    "loading": "Učitavanje ciljeva...",
+    "noGoals": "Nema postavljenih ciljeva.",
+    "addGoal": "Dodaj cilj",
+    "editGoal": "Uredi cilj",
+    "goalAddedSuccess": "Cilj je uspješno dodan!",
+    "goalAddedError": "Dodavanje cilja nije uspjelo.",
+    "goalUpdatedSuccess": "Cilj je uspješno ažuriran!",
+    "goalUpdateError": "Ažuriranje cilja nije uspjelo.",
+    "goalDeletedSuccess": "Cilj je uspješno obrisan!",
+    "goalDeletedError": "Brisanje cilja nije uspjelo.",
+    "goalDeleteConfirm": "Jeste li sigurni da želite obrisati ovaj cilj?",
+    "category": "Kategorija",
+    "amount": "Iznos",
+    "goalType": "Tip cilja",
+    "incomeGoal": "Cilj prihoda",
+    "expenseGoal": "Cilj troškova",
+    "period": "Period",
+    "week": "Sedmica",
+    "month": "Mjesec",
+    "year": "Godina",
+    "forever": "Zauvijek",
+    "cancel": "Otkaži",
+    "confirm": "Potvrdi",
+    "saving": "Spremanje...",
+    "progress": "Napredak"
   }
 }

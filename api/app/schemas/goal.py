@@ -21,5 +21,6 @@ class GoalResponse(GoalBase):
     id: str
     user_id: str
     created_at: datetime
+    current_amount: float
 
     model_config = ConfigDict(from_attributes=True)

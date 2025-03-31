@@ -165,5 +165,33 @@
     "confirm": "Confirm",
     "success": "Transaction deleted successfully!",
     "error": "Failed to delete transaction."
+  },
+  "goal": {
+    "title": "Goals",
+    "loading": "Loading goals...",
+    "noGoals": "No goals have been set.",
+    "addGoal": "Add Goal",
+    "editGoal": "Edit Goal",
+    "goalAddedSuccess": "Goal added successfully!",
+    "goalAddedError": "Failed to add goal.",
+    "goalUpdatedSuccess": "Goal updated successfully!",
+    "goalUpdateError": "Failed to update goal.",
+    "goalDeletedSuccess": "Goal deleted successfully!",
+    "goalDeletedError": "Failed to delete goal.",
+    "goalDeleteConfirm": "Are you sure you want to delete this goal?",
+    "category": "Category",
+    "amount": "Amount",
+    "goalType": "Goal Type",
+    "incomeGoal": "Income Goal",
+    "expenseGoal": "Expense Goal",
+    "period": "Period",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "forever": "Forever",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "saving": "Saving...",
+    "progress": "Progress"
   }
 }

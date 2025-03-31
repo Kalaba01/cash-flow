@@ -8,7 +8,7 @@ export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
-  const sidebarRoutes = ["/dashboard", "/income", "/expense", "/profile"];
+  const sidebarRoutes = ["/dashboard", "/income", "/expense", "/profile", "/goal"];
 
   const pathname = usePathname();
   const isLandingPage = pathname === "/";

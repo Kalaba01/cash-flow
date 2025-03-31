@@ -1,0 +1,22 @@
+.goalList {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  p {
+    text-align: center;
+    color: #666;
+  }
+}
