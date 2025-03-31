@@ -2,9 +2,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ExpenseLineChart, TransactionList } from "@/components";
+import { TransactionItem } from "@/types/TransactionItem";
 
 export default function ExpensePage() {
-  const [expenseData, setExpenseData] = useState([]);
+  const [expenseData, setExpenseData] = useState<TransactionItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,6 +28,18 @@ export default function ExpensePage() {
     fetchExpenses();
   }, []);
 
+  const handleTransactionUpsert = (transaction: TransactionItem) => {
+    setExpenseData((prevData) => {
+      const index = prevData.findIndex((item) => item.id === transaction.id);
+      if (index !== -1) {
+        const newData = [...prevData];
+        newData[index] = transaction;
+        return newData;
+      }
+      return [transaction, ...prevData];
+    });
+  };
+
   return (
     <div>
       <ExpenseLineChart expenseData={expenseData} loading={loading} />
@@ -36,6 +49,7 @@ export default function ExpensePage() {
         type="expense"
         data={expenseData}
         loading={loading}
+        onTransactionAdded={handleTransactionUpsert}
       />
     </div>
   );

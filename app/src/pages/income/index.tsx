@@ -3,17 +3,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { IncomeBarChart, TransactionList } from "@/components";
 import { showNotification } from "@/components/Notification/Notification";
-
-interface IncomeItem {
-  id: string;
-  category_name: string;
-  amount: number;
-  date: string;
-  description?: string;
-}
+import { TransactionItem } from "@/types/TransactionItem";
 
 export default function IncomePage() {
-  const [incomeData, setIncomeData] = useState<IncomeItem[]>([]);
+  const [incomeData, setIncomeData] = useState<TransactionItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,6 +28,18 @@ export default function IncomePage() {
     fetchIncome();
   }, []);
 
+  const handleTransactionUpsert = (transaction: TransactionItem) => {
+    setIncomeData((prevData) => {
+      const index = prevData.findIndex(item => item.id === transaction.id);
+      if (index !== -1) {
+        const newData = [...prevData];
+        newData[index] = transaction;
+        return newData;
+      }
+      return [transaction, ...prevData];
+    });
+  };
+
   return (
     <div>
       <IncomeBarChart incomeData={incomeData} loading={loading} />
@@ -44,6 +49,7 @@ export default function IncomePage() {
         type="income"
         data={incomeData}
         loading={loading}
+        onTransactionAdded={handleTransactionUpsert}
       />
     </div>
   );

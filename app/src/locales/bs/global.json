@@ -157,5 +157,13 @@
     "addExpense": "Dodaj trošak",
     "loading": "Učitavanje...",
     "noData": "Nema evidentiranih troškova."
+  },
+  "confirm": {
+    "title": "Da li ste sigurni?",
+    "deleteMessage": "Da li zaista želite obrisati ovu transakciju? Ova akcija se ne može poništiti.",
+    "cancel": "Otkaži",
+    "confirm": "Potvrdi",
+    "success": "Transakcija je uspješno obrisana!",
+    "error": "Brisanje transakcije nije uspjelo."
   }
 }

@@ -10,6 +10,9 @@ class IncomeBase(BaseModel):
 class IncomeCreate(IncomeBase):
     pass
 
+class IncomeUpdate(IncomeBase):
+    pass
+
 class IncomeResponse(IncomeBase):
     id: str
     user_id: str

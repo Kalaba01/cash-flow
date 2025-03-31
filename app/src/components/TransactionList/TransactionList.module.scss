@@ -4,13 +4,15 @@
   border-radius: 12px;
   box-shadow: 0px 5px 15px var(--shadow-color);
   transition: all 0.3s ease-in-out;
-  width: 55%;
+  width: 60%;
   margin: 2rem auto;
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 1rem;
 
     h3 {
@@ -19,10 +21,30 @@
     }
   }
 
-  p {
-    color: var(--muted-text-color);
+  .filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .dropdown {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-background);
+    color: var(--text-color);
+    cursor: pointer;
     font-size: 14px;
-    text-align: center;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background-color: var(--button-hover);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+    }
   }
 }
 
@@ -133,6 +155,41 @@
   .savings .iconWrapper {
     background-color: #b2dfdb;
     color: #009688;
+  }
+
+  .entertainment .iconWrapper {
+    background-color: #ffd54f;
+    color: #ffeb3b;
+  }
+
+  .education .iconWrapper {
+    background-color: #c5cae9;
+    color: #3f51b5;
+  }
+
+  .health .iconWrapper {
+    background-color: #f8bbd0;
+    color: #d32f2f;
+  }
+
+  .investment .iconWrapper {
+    background-color: #b2ebf2;
+    color: #00796b;
+  }
+
+  .insurance .iconWrapper {
+    background-color: #e1bee7;
+    color: #8e24aa;
+  }
+
+  .subscriptions .iconWrapper {
+    background-color: #b0bec5;
+    color: #37474f;
+  }
+
+  .travel .iconWrapper {
+    background-color: #ffcc80;
+    color: #ff6f00;
   }
 
   .default .iconWrapper {

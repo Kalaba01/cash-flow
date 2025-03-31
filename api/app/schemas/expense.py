@@ -10,6 +10,9 @@ class ExpenseBase(BaseModel):
 class ExpenseCreate(ExpenseBase):
     pass
 
+class ExpenseUpdate(ExpenseBase):
+    pass
+
 class ExpenseResponse(ExpenseBase):
     id: str
     user_id: str

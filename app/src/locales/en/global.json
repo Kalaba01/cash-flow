@@ -157,5 +157,13 @@
     "addExpense": "Add Expense",
     "loading": "Loading...",
     "noData": "No expenses recorded."
+  },
+  "confirm": {
+    "title": "Are you sure?",
+    "deleteMessage": "Do you really want to delete this transaction? This action cannot be undone.",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "success": "Transaction deleted successfully!",
+    "error": "Failed to delete transaction."
   }
 }
