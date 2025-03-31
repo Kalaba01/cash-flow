@@ -43,21 +43,25 @@ export default function ResetPassword() {
       showNotification({ message: t("successMessage"), type: "success" });
       setNewPassword("");
       setConfirmPassword("");
-    } catch (error: any) {
-      const errMsg = error.response?.data?.detail;
-      if (errMsg === "New password must be different from old password") {
-        showNotification({ message: t("newSameAsOld"), type: "error" });
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        const errMsg = error.response?.data?.detail;
+        if (errMsg === "New password must be different from old password") {
+          showNotification({ message: t("newSameAsOld"), type: "error" });
+        } else {
+          showNotification({
+            message: errMsg || t("errorMessage"),
+            type: "error",
+          });
+        }
       } else {
-        showNotification({
-          message: errMsg || t("errorMessage"),
-          type: "error",
-        });
+        showNotification({ message: t("errorMessage"), type: "error" });
       }
     } finally {
       setLoading(false);
       setTimeout(() => {
-        router.push("/")
-      }, 3100)
+        router.push("/");
+      }, 3100);
     }
   };
 

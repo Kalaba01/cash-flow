@@ -54,8 +54,12 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
         onClose();
         onLoginOpen();
       }, 3000);
-    } catch (error: any) {
-      showNotification({ message: error.response?.data?.detail || "An error occurred.", type: "error" });
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        showNotification({ message: error.response?.data?.detail || "An error occurred.", type: "error" });
+       } else {
+        showNotification({ message: "An unexpected error occurred.", type: "error" });
+      }
     } finally {
       setLoading(false);
     }

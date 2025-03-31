@@ -5,6 +5,7 @@ from app.routes.auth import router as auth_router
 from app.routes.profile import router as profile_router
 from app.routes.income import router as income_router
 from app.routes.expense import router as expense_router
+from app.routes.goal import router as goal_router
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
@@ -27,6 +28,7 @@ app.include_router(auth_router)
 app.include_router(profile_router)
 app.include_router(income_router)
 app.include_router(expense_router)
+app.include_router(goal_router)
 
 @app.get("/")
 def read_root():

@@ -37,11 +37,15 @@ export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswor
 
       localStorage.setItem("token", response.data.access_token);
       showNotification({ message: t("loginSuccess"), type: "success" });
-    } catch (error: any) {
-      showNotification({
-        message: error.response?.data?.detail || "Login failed. Please try again.",
-        type: "error"
-      });
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        showNotification({
+          message: error.response?.data?.detail || "Login failed. Please try again.",
+          type: "error",
+        });
+      } else {
+        showNotification({ message: "An unexpected error occurred.", type: "error" });
+      }
     } finally {
       setLoading(false);
       setTimeout(() => {

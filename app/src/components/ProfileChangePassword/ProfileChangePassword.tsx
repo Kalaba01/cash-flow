@@ -36,28 +36,29 @@ export default function ProfileChangePassword({ onClose }: ProfileChangePassword
 
       showNotification({ message: t("passwordUpdated"), type: "success" });
       onClose();
-    } catch (error: any) {
-        if (axios.isAxiosError(error)) {
-          if (error.response) {
-            const errorMessage = error.response.data.detail;
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          const errorMessage = error.response.data.detail;
     
-            if (errorMessage === "Incorrect old password") {
-              showNotification({ message: t("incorrectOldPassword"), type: "error" });
-            } else if (errorMessage === "New password must be different from the old password") {
-              showNotification({ message: t("passwordSameAsOld"), type: "error" });
-            } else {
-              showNotification({ message: t("passwordUpdateFailed"), type: "error" });
-            }
-          } else if (error.request) {
-            showNotification({ message: t("serverError"), type: "error" });
+          if (errorMessage === "Incorrect old password") {
+            showNotification({ message: t("incorrectOldPassword"), type: "error" });
+          } else if (errorMessage === "New password must be different from the old password") {
+            showNotification({ message: t("passwordSameAsOld"), type: "error" });
           } else {
             showNotification({ message: t("passwordUpdateFailed"), type: "error" });
           }
+        } else if (error.request) {
+          showNotification({ message: t("serverError"), type: "error" });
         } else {
-          console.error("Unexpected error:", error);
           showNotification({ message: t("passwordUpdateFailed"), type: "error" });
         }
-      } finally {
+      } else {
+        console.error("Unexpected error:", error);
+        showNotification({ message: t("passwordUpdateFailed"), type: "error" });
+      }
+    }
+     finally {
       setLoading(false);
     }
   };
