@@ -50,7 +50,7 @@ export default function IncomePage() {
         data={incomeData}
         loading={loading}
         onTransactionAdded={handleTransactionUpsert}
-        showAddButton={true}
+        showButtons={true}
       />
     </div>
   );

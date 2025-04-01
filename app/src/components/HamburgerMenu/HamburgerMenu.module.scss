@@ -76,3 +76,63 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .hamburgerMenu {
+    .menu {
+      width: 220px;
+      padding: 16px;
+
+      ul {
+        margin-top: 50px;
+
+        li {
+          font-size: 16px;
+          padding: 12px;
+
+          svg {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .closeButton {
+        font-size: 20px;
+      }
+    }
+
+    .menuButton {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburgerMenu {
+    .menu {
+      width: 200px;
+      padding: 14px;
+
+      ul {
+        margin-top: 40px;
+
+        li {
+          font-size: 15px;
+          padding: 10px;
+
+          svg {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .closeButton {
+        font-size: 18px;
+      }
+    }
+
+    .menuButton {
+      font-size: 20px;
+    }
+  }
+}

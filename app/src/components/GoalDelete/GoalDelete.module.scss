@@ -12,3 +12,18 @@
     background-color: #d32f2f;
   }
 }
+
+@media (max-width: 768px) {
+  .deleteButton {
+    padding: 5px 9px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deleteButton {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}

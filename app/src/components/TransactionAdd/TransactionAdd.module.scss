@@ -29,3 +29,19 @@
     background: darkred;
   }
 }
+
+@media (max-width: 768px) {
+  .button {
+    padding: 7px 10px;
+    font-size: 15px;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 6px 8px;
+    font-size: 14px;
+    gap: 3px;
+  }
+}

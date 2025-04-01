@@ -193,5 +193,12 @@
     "confirm": "Potvrdi",
     "saving": "Spremanje...",
     "progress": "Napredak"
+  },
+  "dashboard": {
+    "incomeTitle": "Nedavni prihodi",
+    "addIncome": "Dodaj prihod",
+    "expenseTitle": "Nedavni rashodi",
+    "addExpense": "Dodaj rashod",
+    "overview": "Pregled kontrolne table"
   }
 }

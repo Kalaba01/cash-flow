@@ -27,3 +27,23 @@
 .goTop:hover {
   background-color: var(--primary-hover);
 }
+
+@media (max-width: 768px) {
+  .goTop {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .goTop {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    bottom: 14px;
+    right: 14px;
+  }
+}

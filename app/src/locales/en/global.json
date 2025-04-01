@@ -193,5 +193,12 @@
     "confirm": "Confirm",
     "saving": "Saving...",
     "progress": "Progress"
+  },
+  "dashboard": {
+    "incomeTitle": "Recent Income",
+    "addIncome": "Add Income",
+    "expenseTitle": "Recent Expenses",
+    "addExpense": "Add Expense",
+    "overview": "Dashboard Overview"
   }
 }

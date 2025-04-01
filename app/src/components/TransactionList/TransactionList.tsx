@@ -13,7 +13,7 @@ interface TransactionListProps {
   data: TransactionItem[];
   loading: boolean;
   onTransactionAdded: (newTransaction: TransactionItem) => void;
-  showAddButton?: boolean;
+  showButtons: boolean;
 }
 
 export default function TransactionList({
@@ -23,7 +23,7 @@ export default function TransactionList({
   data: initialData,
   loading,
   onTransactionAdded,
-  showAddButton
+  showButtons
 }: TransactionListProps) {
   
   const t = useTranslations("");
@@ -82,7 +82,7 @@ export default function TransactionList({
 
         <h3>{t(title)}</h3>
 
-        {showAddButton !== false ? (
+        {showButtons !== false ? (
           <TransactionAdd title={addButtonTitle} type={type} onTransactionAdded={onTransactionAdded} />
         ) : (
           <TransactionDownload transactions={filteredData} type={type} />
@@ -117,9 +117,11 @@ export default function TransactionList({
                 )}
               </div>
               <div className={styles.actions}>
-                <TransactionEdit transaction={item} type={type} onTransactionUpdated={onTransactionAdded} />
+                { showButtons && 
+                <TransactionEdit transaction={item} type={type} onTransactionUpdated={onTransactionAdded} /> &&
                 <TransactionDelete transactionId={item.id!} type={type} onTransactionDeleted={handleTransactionDeleted} />
-              </div>
+                }
+                </div>
             </li>
           ))}
         </ul>

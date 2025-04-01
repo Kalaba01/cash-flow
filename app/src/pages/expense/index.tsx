@@ -50,7 +50,7 @@ export default function ExpensePage() {
         data={expenseData}
         loading={loading}
         onTransactionAdded={handleTransactionUpsert}
-        showAddButton={true}
+        showButtons={true}
       />
     </div>
   );

@@ -50,7 +50,8 @@ export default function GoalPage() {
         goals={goals} 
         loading={loading} 
         onGoalUpsert={handleGoalUpsert} 
-        onGoalDeleted={handleGoalDeleted} 
+        onGoalDeleted={handleGoalDeleted}
+        showButtons={true}
       />
     </div>
   );

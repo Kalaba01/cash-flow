@@ -8,9 +8,10 @@ interface GoalItemProps {
   goal: GoalType;
   onGoalDeleted: (goalId: string) => void;
   onGoalUpdated: (updatedGoal: GoalType) => void;
+  showButtons: boolean;
 }
 
-export default function GoalItem({ goal, onGoalDeleted, onGoalUpdated }: GoalItemProps) {
+export default function GoalItem({ goal, onGoalDeleted, onGoalUpdated, showButtons }: GoalItemProps) {
   const t = useTranslations("goal");
 
   const getProgressColor = (percentage: number) => {
@@ -43,8 +44,10 @@ export default function GoalItem({ goal, onGoalDeleted, onGoalUpdated }: GoalIte
         </p>
       </div>
       <div className={styles.actions}>
-        <GoalEdit goal={goal} onGoalUpdated={onGoalUpdated} />
-        <GoalDelete goalId={goal.id} onGoalDeleted={onGoalDeleted} />
+        {showButtons && 
+          <GoalEdit goal={goal} onGoalUpdated={onGoalUpdated} /> &&
+          <GoalDelete goalId={goal.id} onGoalDeleted={onGoalDeleted} />
+        }
       </div>
     </li>
   );

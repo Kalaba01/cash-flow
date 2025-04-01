@@ -11,3 +11,16 @@
     color: darkred;
   }
 }
+
+@media (max-width: 768px) {
+  .deleteButton {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deleteButton {
+    font-size: 18px;
+    padding: 4px;
+  }
+}

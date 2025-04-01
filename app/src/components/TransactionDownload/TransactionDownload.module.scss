@@ -10,3 +10,15 @@
     color: var(--primary-hover)
   }
 }
+
+@media (max-width: 768px) {
+  .downloadButton {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .downloadButton {
+    font-size: 1.1rem;
+  }
+}

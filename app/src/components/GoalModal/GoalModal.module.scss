@@ -68,3 +68,41 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 18px;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .modalBody label {
+    font-size: 14px;
+  }
+
+  .modalBody input,
+  .modalBody select {
+    font-size: 14px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    font-size: 14px;
+  }
+}

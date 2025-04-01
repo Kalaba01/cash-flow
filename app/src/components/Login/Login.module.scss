@@ -162,3 +162,82 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 20px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    form {
+      label {
+        font-size: 13px;
+      }
+
+      input {
+        font-size: 13px;
+      }
+
+      .passwordInput .eyeIcon {
+        font-size: 15px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 9px;
+      }
+    }
+
+    .forgotPassword,
+    .registerLink {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    padding: 16px;
+
+    .modalUserIcon {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    form {
+      label {
+        font-size: 12px;
+      }
+
+      input {
+        font-size: 12px;
+        padding: 8px;
+      }
+
+      .passwordInput .eyeIcon {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+
+    .forgotPassword,
+    .registerLink {
+      font-size: 12px;
+    }
+
+    .closeButton {
+      font-size: 16px;
+    }
+  }
+}

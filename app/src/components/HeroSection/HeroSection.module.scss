@@ -49,3 +49,48 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 6%;
+
+    .content {
+      max-width: 100%;
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .image {
+      max-width: 85%;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 5%;
+
+    .content {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .image {
+      max-width: 100%;
+    }
+  }
+}

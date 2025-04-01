@@ -28,3 +28,18 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .faq {
+    padding: 60px 4%;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .faqList {
+      gap: 20px;
+    }
+  }
+}

@@ -109,3 +109,110 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .functionalities {
+    gap: 50px;
+    padding: 70px 5%;
+
+    .heading {
+      margin-bottom: 25px;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .block,
+    .reverse {
+      flex-direction: column;
+      text-align: center;
+
+      .text {
+        max-width: 100%;
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+
+      .image {
+        max-width: 100%;
+      }
+    }
+
+    .centerBlock {
+      .text {
+        max-width: 100%;
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .functionalities {
+    gap: 40px;
+    padding: 60px 4%;
+
+    .heading {
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .block,
+    .reverse {
+      gap: 20px;
+
+      .text {
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.85rem;
+        }
+      }
+
+      .image {
+        max-width: 100%;
+      }
+    }
+
+    .centerBlock {
+      gap: 15px;
+
+      .text {
+        max-width: 100%;
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}

@@ -197,3 +197,99 @@
     color: var(--text-color);
   }
 }
+
+@media (max-width: 768px) {
+  .listContainer {
+    width: 85%;
+    padding: 16px;
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+
+    .filters {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  .list {
+    .listItem {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .iconWrapper {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .details {
+        width: 100%;
+
+        .row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .amount {
+          font-size: 15px;
+        }
+
+        .date {
+          font-size: 13px;
+        }
+
+        .description {
+          font-size: 11px;
+        }
+      }
+
+      .actions {
+        margin-top: 10px;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .listContainer {
+    width: 95%;
+    padding: 14px;
+
+    .header {
+      h3 {
+        font-size: 15px;
+      }
+    }
+
+    .dropdown {
+      font-size: 13px;
+      padding: 8px;
+    }
+  }
+
+  .list {
+    .listItem {
+      .details {
+        .amount {
+          font-size: 14px;
+        }
+
+        .date,
+        .description {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

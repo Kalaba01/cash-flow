@@ -9,16 +9,17 @@ interface GoalListProps {
   loading: boolean;
   onGoalUpsert: (goal: GoalType) => void;
   onGoalDeleted: (goalId: string) => void;
+  showButtons: boolean
 }
 
-export default function GoalList({ goals, loading, onGoalUpsert, onGoalDeleted }: GoalListProps) {
+export default function GoalList({ goals, loading, onGoalUpsert, onGoalDeleted, showButtons }: GoalListProps) {
   const t = useTranslations("goal");
 
   return (
     <div className={styles.goalList}>
       <div className={styles.header}>
         <h2>{t("title")}</h2>
-        <GoalAdd onGoalAdded={onGoalUpsert} />
+        { showButtons && <GoalAdd onGoalAdded={onGoalUpsert} />}
       </div>
       {loading ? (
         <p>{t("loading")}</p>
@@ -27,7 +28,7 @@ export default function GoalList({ goals, loading, onGoalUpsert, onGoalDeleted }
       ) : (
         <ul>
           {goals.map((goal) => (
-            <GoalItem key={goal.id} goal={goal} onGoalDeleted={onGoalDeleted} onGoalUpdated={onGoalUpsert} />
+            <GoalItem key={goal.id} goal={goal} onGoalDeleted={onGoalDeleted} onGoalUpdated={onGoalUpsert} showButtons={showButtons} />
           ))}
         </ul>
       )}

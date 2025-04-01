@@ -11,3 +11,15 @@
     color: var(--secondary-color-hover);
   }
 }
+
+@media (max-width: 768px) {
+  .editButton {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editButton {
+    font-size: 18px;
+  }
+}

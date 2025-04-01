@@ -151,3 +151,85 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 24px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    form {
+      gap: 12px;
+
+      .row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .inputGroup label {
+        font-size: 13px;
+      }
+
+      .inputGroup input {
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
+
+    .alreadyAccount {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 20px;
+
+    .modalUserIcon {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    form {
+      gap: 10px;
+
+      .inputGroup input {
+        padding: 9px;
+        font-size: 12px;
+      }
+
+      .passwordInput input {
+        padding-right: 35px;
+      }
+
+      .eyeIcon {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 9px;
+      }
+    }
+
+    .alreadyAccount {
+      font-size: 12px;
+    }
+
+    .closeButton {
+      font-size: 18px;
+    }
+  }
+}

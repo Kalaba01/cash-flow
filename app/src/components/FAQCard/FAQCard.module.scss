@@ -48,3 +48,57 @@
     transform: rotate(180deg);
   }
 }
+
+@media (max-width: 768px) {
+  .faqItem {
+    .question {
+      padding: 18px 22px;
+      font-size: 1.3rem;
+
+      .icon {
+        font-size: 1.1rem;
+      }
+    }
+
+    .answer {
+      padding: 0 22px;
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    &.open {
+      .answer {
+        padding: 18px 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .faqItem {
+    .question {
+      padding: 16px 18px;
+      font-size: 1.2rem;
+
+      .icon {
+        font-size: 1rem;
+      }
+    }
+
+    .answer {
+      padding: 0 18px;
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    &.open {
+      .answer {
+        padding: 16px 18px;
+      }
+    }
+  }
+}

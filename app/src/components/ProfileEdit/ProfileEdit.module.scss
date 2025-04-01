@@ -104,3 +104,77 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 18px;
+
+    .modalHeader {
+      h2 {
+        font-size: 16px;
+      }
+
+      .closeIcon {
+        font-size: 22px;
+      }
+    }
+
+    .inputGroup {
+      label {
+        font-size: 14px;
+      }
+
+      input {
+        font-size: 14px;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+      gap: 8px;
+
+      .saveButton,
+      .cancelButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 16px;
+
+    .modalHeader {
+      h2 {
+        font-size: 15px;
+      }
+
+      .closeIcon {
+        font-size: 20px;
+      }
+    }
+
+    .inputGroup {
+      label {
+        font-size: 13px;
+      }
+
+      input {
+        font-size: 13px;
+        padding: 7px;
+      }
+    }
+
+    .actions {
+      .saveButton,
+      .cancelButton {
+        font-size: 13px;
+        padding: 9px;
+      }
+    }
+  }
+}

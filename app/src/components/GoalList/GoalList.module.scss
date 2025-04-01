@@ -20,3 +20,31 @@
     color: #666;
   }
 }
+
+@media (max-width: 768px) {
+  .goalList {
+    padding: 16px;
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .goalList {
+    padding: 14px;
+
+    .header {
+      h2 {
+        font-size: 18px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}

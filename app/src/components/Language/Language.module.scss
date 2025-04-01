@@ -67,3 +67,47 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .language {
+    .toggleButton {
+      font-size: 15px;
+
+      .globeIcon {
+        font-size: 18px;
+      }
+    }
+
+    .dropdown {
+      top: 36px;
+      min-width: 120px;
+
+      li button {
+        padding: 10px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .language {
+    .toggleButton {
+      font-size: 14px;
+
+      .globeIcon {
+        font-size: 16px;
+      }
+    }
+
+    .dropdown {
+      top: 34px;
+      min-width: 110px;
+
+      li button {
+        padding: 8px;
+        font-size: 12px;
+      }
+    }
+  }
+}

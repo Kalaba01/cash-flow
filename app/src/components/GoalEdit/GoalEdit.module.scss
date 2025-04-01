@@ -12,3 +12,18 @@
     background-color: #e0a800;
   }
 }
+
+@media (max-width: 768px) {
+  .editButton {
+    padding: 5px 9px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editButton {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+}

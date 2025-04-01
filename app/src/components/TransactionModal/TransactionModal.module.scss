@@ -103,3 +103,59 @@
     background: var(--primary-hover);
   }
 }
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .modalHeader {
+    font-size: 16px;
+  }
+
+  .modalBody {
+    label {
+      font-size: 13px;
+    }
+
+    input,
+    textarea {
+      font-size: 13px;
+      padding: 7px;
+    }
+  }
+
+  .modalFooter {
+    flex-direction: column;
+    gap: 8px;
+
+    .modalButton {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .modalHeader {
+    font-size: 15px;
+  }
+
+  .modalBody {
+    label {
+      font-size: 12px;
+    }
+
+    input,
+    textarea {
+      font-size: 12px;
+      padding: 6px;
+    }
+  }
+}
