@@ -20,6 +20,7 @@ export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 export { default as PublicRoute } from "./PublicRoute/PublicRoute";
 export { default as IncomeBarChart } from "./IncomeBarChart/IncomeBarChart";
 export { default as ExpenseLineChart } from "./ExpenseLineChart/ExpenseLineChart";
+export { default as TransactionDownload } from "./TransactionDownload/TransactionDownload";
 export { default as TransactionAdd } from "./TransactionAdd/TransactionAdd";
 export { default as TransactionModal } from "./TransactionModal/TransactionModal";
 export { default as TransactionList } from "./TransactionList/TransactionList";

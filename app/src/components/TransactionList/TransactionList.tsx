@@ -2,7 +2,7 @@
 import styles from "./TransactionList.module.scss";
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Loading, TransactionAdd, TransactionEdit, TransactionDelete } from "@/components";
+import { Loading, TransactionAdd, TransactionEdit, TransactionDelete, TransactionDownload } from "@/components";
 import { incomeIcons, expenseIcons, getCategoryIcon } from "@/utils/categoryIcons";
 import { TransactionItem } from "@/types/TransactionItem";
 
@@ -13,6 +13,7 @@ interface TransactionListProps {
   data: TransactionItem[];
   loading: boolean;
   onTransactionAdded: (newTransaction: TransactionItem) => void;
+  showAddButton?: boolean;
 }
 
 export default function TransactionList({
@@ -21,7 +22,8 @@ export default function TransactionList({
   type,
   data: initialData,
   loading,
-  onTransactionAdded
+  onTransactionAdded,
+  showAddButton
 }: TransactionListProps) {
   
   const t = useTranslations("");
@@ -80,7 +82,11 @@ export default function TransactionList({
 
         <h3>{t(title)}</h3>
 
-        <TransactionAdd title={addButtonTitle} type={type} onTransactionAdded={onTransactionAdded} />
+        {showAddButton !== false ? (
+          <TransactionAdd title={addButtonTitle} type={type} onTransactionAdded={onTransactionAdded} />
+        ) : (
+          <TransactionDownload transactions={filteredData} type={type} />
+        )}
       </div>
 
       {loading ? (
