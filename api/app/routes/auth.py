@@ -8,8 +8,9 @@ from app.schemas.user import UserCreate, UserResponse, LoginRequest, ForgotPassw
 from app.services.email_service import send_email
 from app.db.database import get_db
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter(prefix="/auth", tags=["Auth"]) # Define router for authentication-related routes
 
+# Register a new user
 @router.post("/register", response_model=UserResponse)
 async def register_user(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
     existing_user = await get_user_by_email(db, user_data.email)
@@ -19,6 +20,7 @@ async def register_user(user_data: UserCreate, db: AsyncSession = Depends(get_db
     new_user = await create_user(db, user_data)
     return new_user
 
+# Log in a user and return JWT access token
 @router.post("/login", response_model=Token)
 async def login(request: LoginRequest, db: AsyncSession = Depends(get_db)):
     user = await authenticate_user(db, request.email, request.password)
@@ -32,6 +34,7 @@ async def login(request: LoginRequest, db: AsyncSession = Depends(get_db)):
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+# Request password reset link via email
 @router.post("/forgot-password")
 async def forgot_password(request: ForgotPasswordRequest, db: AsyncSession = Depends(get_db)):
     token = await create_password_reset_token(db, request.email)
@@ -54,6 +57,7 @@ async def forgot_password(request: ForgotPasswordRequest, db: AsyncSession = Dep
 
     return {"message": "If the email exists, a reset link has been sent."}
 
+# Reset the user's password using token
 @router.post("/reset-password")
 async def reset_password(request: ResetPasswordRequest, db: AsyncSession = Depends(get_db)):
     success = await reset_user_password(db, request.token, request.new_password)

@@ -8,14 +8,16 @@ from app.routes.expense import router as expense_router
 from app.routes.goal import router as goal_router
 from contextlib import asynccontextmanager
 
+# Create database tables on application startup using lifespan context
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     yield
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan) # Initialize FastAPI application with custom lifespan
 
+# Enable CORS for frontend (localhost:3000)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -24,12 +26,9 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+# Include routes
 app.include_router(auth_router)
 app.include_router(profile_router)
 app.include_router(income_router)
 app.include_router(expense_router)
 app.include_router(goal_router)
-
-@app.get("/")
-def read_root():
-    return {"message": "FastAPI with PostgreSQL is running!"}

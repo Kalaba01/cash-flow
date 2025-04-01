@@ -7,20 +7,24 @@ from app.schemas.expense import ExpenseCreate, ExpenseResponse, ExpenseUpdate
 from app.core.security import get_current_user
 from app.services.expense_service import get_user_expenses, create_new_expense, update_expense, delete_expense
 
-router = APIRouter(prefix="/expense", tags=["Expense"])
+router = APIRouter(prefix="/expense", tags=["Expense"]) # Define router for Expense endpoints
 
+# Get all expenses for the current authenticated user
 @router.get("/", response_model=List[ExpenseResponse])
 async def get_expenses(db: AsyncSession = Depends(get_db), current_user: User = Depends(get_current_user)):
     return await get_user_expenses(db, current_user.id)
 
+# Create a new expense for the current user
 @router.post("/", response_model=ExpenseResponse)
 async def create_expense(expense_data: ExpenseCreate, db: AsyncSession = Depends(get_db), current_user: User = Depends(get_current_user)):
     return await create_new_expense(db, expense_data, current_user.id)
 
+# Update an existing expense by ID for the current user
 @router.put("/{expense_id}", response_model=ExpenseResponse)
 async def update_expense_endpoint(expense_id: str, expense_data: ExpenseUpdate, db: AsyncSession = Depends(get_db), current_user: User = Depends(get_current_user)):
     return await update_expense(db, expense_id, expense_data, current_user.id)
 
+# Delete an expense by ID for the current user
 @router.delete("/{expense_id}", response_model=ExpenseResponse)
 async def delete_expense_endpoint(expense_id: str, db: AsyncSession = Depends(get_db), current_user: User = Depends(get_current_user)):
     return await delete_expense(db, expense_id, current_user.id)

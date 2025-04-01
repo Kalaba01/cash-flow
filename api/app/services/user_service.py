@@ -7,10 +7,12 @@ from app.schemas.user import UserCreate, UserUpdate, ChangePasswordRequest
 from app.services.email_service import send_email
 from app.core.security import verify_password, get_password_hash, verify_password_reset_token
 
+# Fetch a user by email from the database
 async def get_user_by_email(db: AsyncSession, email: str):
     result = await db.execute(select(User).filter(User.email == email))
     return result.scalars().first()
 
+# Create a new user with hashed password and send a welcome email
 async def create_user(db: AsyncSession, user_data: UserCreate):
     hashed_password = get_password_hash(user_data.password)
     new_user = User(
@@ -32,6 +34,7 @@ async def create_user(db: AsyncSession, user_data: UserCreate):
 
     return new_user
 
+# Authenticate user by verifying email and password
 async def authenticate_user(db: AsyncSession, email: str, password: str):
     user = await get_user_by_email(db, email)
     if not user or not verify_password(password, user.hashed_password):
@@ -39,6 +42,7 @@ async def authenticate_user(db: AsyncSession, email: str, password: str):
 
     return user
 
+# Reset a user's password using a valid reset token
 async def reset_user_password(db: AsyncSession, token: str, new_password: str):
     reset_token = await verify_password_reset_token(db, token)
 
@@ -61,6 +65,7 @@ async def reset_user_password(db: AsyncSession, token: str, new_password: str):
     await db.refresh(user)
     return True
 
+# Update the user's profile details (first name, last name, email)
 async def update_user_profile(db: AsyncSession, user_id: str, user_data: UserUpdate):
     result = await db.execute(select(User).filter(User.id == user_id))
     user = result.scalars().first()
@@ -76,6 +81,7 @@ async def update_user_profile(db: AsyncSession, user_id: str, user_data: UserUpd
     await db.refresh(user)
     return user
 
+# Change the user's password after verifying the old one
 async def change_user_password(db: AsyncSession, user: User, request: ChangePasswordRequest):
     if not verify_password(request.old_password, user.hashed_password):
         raise HTTPException(status_code=400, detail="Incorrect old password")

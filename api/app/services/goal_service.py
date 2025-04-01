@@ -11,6 +11,7 @@ from app.models.expense import Expense
 from app.models.goal import Goal
 from app.schemas.goal import GoalCreate, GoalUpdate, GoalResponse
 
+# Calculate the current total amount for a goal based on type, category, and time period
 async def calculate_current_amount(db: AsyncSession, category_name: str, goal_type: str, user_id: str, period: str) -> float:
     model = Income if goal_type == "income" else Expense
     now = datetime.now()
@@ -36,6 +37,7 @@ async def calculate_current_amount(db: AsyncSession, category_name: str, goal_ty
 
     return sum(t.amount for t in transactions)
 
+# Retrieve all goals for the authenticated user and include current progress calculation
 async def get_user_goals(db: AsyncSession, user_id: str) -> List[GoalResponse]:
     result = await db.execute(select(Goal).where(Goal.user_id == user_id))
     goals = result.scalars().all()
@@ -58,6 +60,7 @@ async def get_user_goals(db: AsyncSession, user_id: str) -> List[GoalResponse]:
 
     return goal_responses
 
+# Create and return a new goal for the user, including current progress
 async def create_goal(db: AsyncSession, goal_data: GoalCreate, user_id: str) -> GoalResponse:
     new_goal = Goal(
         id=str(uuid4()),
@@ -86,6 +89,7 @@ async def create_goal(db: AsyncSession, goal_data: GoalCreate, user_id: str) -> 
         current_amount=current_amount
     )
 
+# Update goal fields if the goal belongs to the user, then recalculate current progress
 async def update_goal(db: AsyncSession, goal_id: str, goal_data: GoalUpdate, user_id: str) -> GoalResponse:
     goal = await db.get(Goal, goal_id)
 
@@ -111,6 +115,7 @@ async def update_goal(db: AsyncSession, goal_id: str, goal_data: GoalUpdate, use
         current_amount=current_amount
     )
 
+# Delete a goal if it belongs to the user
 async def delete_goal(db: AsyncSession, goal_id: str, user_id: str):
     goal = await db.get(Goal, goal_id)
     

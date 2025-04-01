@@ -14,27 +14,31 @@ from app.db.database import get_db
 from app.models.user import User
 from app.models.password_reset import PasswordResetToken
 
-load_dotenv()
+load_dotenv() # Load environment variables from .env file
 
-SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey")
-ALGORITHM = os.getenv("ALGORITHM", "HS256")
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30))
+SECRET_KEY = os.getenv("SECRET_KEY") # Secret key for encoding JWT tokens
+ALGORITHM = os.getenv("ALGORITHM") # Algorithm used for JWT encoding/decoding
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")) # Expiration time for access tokens in minutes
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto") # Password hashing context using bcrypt
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login") # OAuth2 password flow dependency for token extraction
 
+# Hashes a plain password using bcrypt
 def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
+# Verifies a plain password against a hashed password
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return pwd_context.verify(plain_password, hashed_password)
 
+# Creates a JWT access token with optional expiration delta
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
     to_encode = data.copy()
     expire = datetime.now(UTC) + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
+# Decodes and verifies the JWT token and extracts user email
 def verify_token(token: str, credentials_exception: HTTPException) -> str:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
@@ -45,6 +49,7 @@ def verify_token(token: str, credentials_exception: HTTPException) -> str:
     except JWTError:
         raise credentials_exception
 
+# Retrieves the currently authenticated user from the database using JWT token
 async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession = Depends(get_db)) -> User:
     credentials_exception = HTTPException(
         status_code=401,
@@ -61,9 +66,11 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession
 
     return user
 
+# Generates a secure random token for password reset
 def generate_reset_token() -> str:
     return secrets.token_urlsafe(32)
 
+# Creates a new password reset token in the database for a given user or deletes any previous token for that user
 async def create_password_reset_token(db: AsyncSession, email: str):
     result = await db.execute(select(User).filter(User.email == email))
     user = result.scalars().first()
@@ -84,6 +91,7 @@ async def create_password_reset_token(db: AsyncSession, email: str):
 
     return reset_token.token
 
+# Verifies the validity of a password reset token (existence and expiration)
 async def verify_password_reset_token(db: AsyncSession, token: str):
     result = await db.execute(select(PasswordResetToken).filter(PasswordResetToken.token == token))
     reset_token = result.scalars().first()

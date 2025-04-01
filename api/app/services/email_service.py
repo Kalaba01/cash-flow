@@ -5,17 +5,19 @@ from email.mime.text import MIMEText
 from jinja2 import Environment, FileSystemLoader
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() # Load environment variables from .env file
 
+# SMTP configuration values loaded from environment
 SMTP_SERVER = os.getenv("EMAIL_SERVICE")
 SMTP_PORT = int(os.getenv("EMAIL_PORT"))
 SMTP_USER = os.getenv("EMAIL_USER")
 SMTP_PASS = os.getenv("EMAIL_PASS")
 SMTP_FROM = os.getenv("SMTP_FROM")
 
-template_env = Environment(loader=FileSystemLoader("app/templates"))
+template_env = Environment(loader=FileSystemLoader("app/templates")) # Set up Jinja2 environment to load email templates
 
-async def send_email(to_email: str, subject: str, template_name: str, context: dict):
+# Send an HTML email using a Jinja2 template and aiosmtplib
+async def send_email(to_email: str, subject: str, template_name: str, context: dict): 
     try:
         template = template_env.get_template(f"{template_name}_template.html")
         html_content = template.render(context)
