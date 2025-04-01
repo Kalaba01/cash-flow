@@ -5,6 +5,7 @@ import { Loading } from "@/components/";
 import { FaChartLine } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+// Interface for a single expense item
 interface ExpenseItem {
   category_name: string;
   amount: number;
@@ -12,16 +13,19 @@ interface ExpenseItem {
   description?: string;
 }
 
+// Props for the ExpenseLineChart component
 interface ExpenseLineChartProps {
   expenseData: ExpenseItem[];
   loading: boolean;
 }
 
+// Props for the custom tooltip used in the chart
 interface CustomTooltipProps {
   active?: boolean;
   payload?: { payload: ExpenseItem }[];
 }
 
+// Custom tooltip component for displaying expense details in the chart
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     const { description, amount } = payload[0].payload;
@@ -35,6 +39,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
+// Line chart component used to visualize expenses over time
 export default function ExpenseLineChart({ expenseData, loading }: ExpenseLineChartProps) {
   const t = useTranslations("ExpenseLineChart");
 

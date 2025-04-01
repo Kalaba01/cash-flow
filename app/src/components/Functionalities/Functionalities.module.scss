@@ -45,8 +45,6 @@
     }
 
     .image {
-      max-width: 50%;
-
       img {
         width: 100%;
         border-radius: 10px;
@@ -67,6 +65,13 @@
 
     .text {
       max-width: 60%;
+    }
+
+    .image {
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTachometerAlt, FaUser, FaMoneyBillWave, FaChartPie, FaBullseye, FaTimes, FaBars } from "react-icons/fa";
 
+// Mobile navigation menu with animated open/close
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("hamburgerMenu");

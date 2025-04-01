@@ -4,6 +4,7 @@ import { GoalEdit, GoalDelete } from "@/components/";
 import { GoalType } from "@/types/Goal";
 import { useTranslations } from "next-intl";
 
+// Props for the GoalItem component, includes goal data and event handlers
 interface GoalItemProps {
   goal: GoalType;
   onGoalDeleted: (goalId: string) => void;
@@ -11,9 +12,11 @@ interface GoalItemProps {
   showButtons: boolean;
 }
 
+// Renders a single goal item with progress bar and optional edit/delete buttons
 export default function GoalItem({ goal, onGoalDeleted, onGoalUpdated, showButtons }: GoalItemProps) {
   const t = useTranslations("goal");
 
+  // Returns CSS class for progress bar based on percentage
   const getProgressColor = (percentage: number) => {
     if (percentage < 80) return styles.green;
     if (percentage < 95) return styles.yellow;
@@ -24,6 +27,7 @@ export default function GoalItem({ goal, onGoalDeleted, onGoalUpdated, showButto
   const formattedPercentage =
     progressPercentage % 1 === 0 ? `${progressPercentage.toFixed(0)}%` : `${progressPercentage.toFixed(2)}%`;
 
+  // Formats goal category with capitalized first letter
   const formatCategory = (category: string) =>
     category.charAt(0).toUpperCase() + category.slice(1);
 

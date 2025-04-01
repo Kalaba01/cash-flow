@@ -3,6 +3,7 @@ import { IntlProvider } from "next-intl";
 import { useEffect, useState } from "react";
 import { useLanguageStore } from "@/store/useLanguageStore";
 
+// Component that loads translation messages dynamically based on selected locale
 export default function I18nProvider({ children }: { children: React.ReactNode }) {
   const { locale } = useLanguageStore();
   const [messages, setMessages] = useState<Record<string, string> | null>(null);

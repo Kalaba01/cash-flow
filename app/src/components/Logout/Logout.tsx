@@ -3,6 +3,7 @@ import styles from "./Logout.module.scss";
 import { useRouter } from "next/navigation";
 import { FaSignOutAlt } from "react-icons/fa";
 
+// Logout button component
 export default function Logout() {
   const router = useRouter();
 

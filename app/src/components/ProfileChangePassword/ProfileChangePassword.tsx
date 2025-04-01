@@ -6,10 +6,12 @@ import { FaLock, FaTimes } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { showNotification } from "@/components/Notification/Notification";
 
+// Props interface for the change password modal component
 interface ProfileChangePasswordProps {
   onClose: () => void;
 }
 
+// Handles password change request with validations and error handling
 export default function ProfileChangePassword({ onClose }: ProfileChangePasswordProps) {
   const t = useTranslations("profile");
   const [oldPassword, setOldPassword] = useState("");

@@ -4,6 +4,7 @@ import { FAQCard } from "@/components";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+// FAQ page section with animated entrance
 export default function FAQ() {
   const t = useTranslations("faq");
   const questions = t.raw("questions");

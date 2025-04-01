@@ -6,17 +6,20 @@ import { useTranslations } from "next-intl";
 import { FaTimes } from "react-icons/fa";
 import { showNotification } from "@/components/Notification/Notification";
 
+// Props interface for the profile edit modal component
 interface ProfileEditProps {
   isOpen: boolean;
   onClose: () => void;
   onProfileUpdate: (updatedUser: UserProfile) => void;
 }
 
+// Interface representing the structure of user profile data
 interface UserProfile {
   first_name: string;
   last_name: string;
   email: string;
 }
+
 
 export default function ProfileEdit({ isOpen, onClose, onProfileUpdate }: ProfileEditProps) {
   const t = useTranslations("profile");
@@ -45,10 +48,12 @@ export default function ProfileEdit({ isOpen, onClose, onProfileUpdate }: Profil
     }
   }, [isOpen]);
 
+  // Handles input field changes and updates form state
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  // Sends updated profile data to the backend
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {

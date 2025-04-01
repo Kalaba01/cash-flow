@@ -3,6 +3,7 @@ import styles from "./Loading.module.scss";
 import { useTranslations } from "next-intl";
 import { ReactTyped } from "react-typed";
 
+// Loading spinner with animated ellipsis using ReactTyped
 export default function Loading() {
   const t = useTranslations("loading");
 

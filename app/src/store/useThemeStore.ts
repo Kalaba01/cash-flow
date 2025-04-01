@@ -1,12 +1,14 @@
 import { create } from "zustand";
 import { useEffect } from "react";
 
+// Interface for theme state used in Zustand store
 interface ThemeState {
   theme: "light" | "dark";
   setTheme: (theme: "light" | "dark") => void;
   toggleTheme: () => void;
 }
 
+// Managing light/dark theme state
 export const useThemeStore = create<ThemeState>((set) => ({
   theme: typeof window !== "undefined" ? (localStorage.getItem("theme") as "light" | "dark") || "light" : "light",
   
@@ -26,6 +28,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
   }
 }));
 
+// Hook to initialize theme on app load based on stored value
 export function useInitializeTheme() {
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;

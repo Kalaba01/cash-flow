@@ -1,3 +1,4 @@
+// Enum for goal period options (week, month, year, or forever)
 export enum GoalPeriod {
   WEEK = "week",
   MONTH = "month",
@@ -5,6 +6,7 @@ export enum GoalPeriod {
   FOREVER = "forever"
 }
 
+// Type definition for a Goal item with all goal-related properties
 export type GoalType = {
   id: string;
   user_id: string;

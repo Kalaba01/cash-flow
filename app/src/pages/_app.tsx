@@ -7,6 +7,7 @@ import { useInitializeTheme } from "@/store/useThemeStore";
 import { NotificationContainer } from "@/components/Notification/Notification";
 import I18nProvider from "@/providers/I18nProvider";
 
+// Main application component that wraps all pages
 export default function MyApp({ Component, pageProps }: AppProps) {
   useInitializeLanguage();
   useInitializeTheme();

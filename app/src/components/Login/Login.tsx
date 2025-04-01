@@ -8,6 +8,7 @@ import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { showNotification } from "@/components/Notification/Notification";
 
+// Props interface for the Login component
 interface LoginProps {
   onOpen: () => void;
   onClose: () => void;
@@ -16,6 +17,7 @@ interface LoginProps {
   isOpen: boolean;
 }
 
+// Login modal component
 export default function Login({ onOpen, onClose, onRegisterOpen, onForgotPasswordOpen, isOpen }: LoginProps) {
   const t = useTranslations("login");
   const router = useRouter();

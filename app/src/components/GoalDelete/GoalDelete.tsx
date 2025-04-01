@@ -7,15 +7,18 @@ import { ConfirmModal } from "@/components/";
 import { showNotification } from "@/components/Notification/Notification";
 import { useTranslations } from "next-intl";
 
+// Props for GoalDelete component, includes goal ID and callback after deletion
 interface GoalDeleteProps {
   goalId: string;
   onGoalDeleted: (goalId: string) => void;
 }
 
+// Renders a delete button and confirmation modal to delete a goal
 export default function GoalDelete({ goalId, onGoalDeleted }: GoalDeleteProps) {
   const t = useTranslations("goal");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Handles goal deletion by sending DELETE request and notifying the user
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");

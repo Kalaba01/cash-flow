@@ -4,6 +4,7 @@ import { GoalItem, GoalAdd } from "@/components/";
 import { GoalType } from "@/types/Goal";
 import { useTranslations } from "next-intl";
 
+// Props for the GoalList component, including goal array and action handlers
 interface GoalListProps {
   goals: GoalType[];
   loading: boolean;
@@ -12,6 +13,7 @@ interface GoalListProps {
   showButtons: boolean
 }
 
+// Renders the list of user goals with optional add button and loading/no-data states
 export default function GoalList({ goals, loading, onGoalUpsert, onGoalDeleted, showButtons }: GoalListProps) {
   const t = useTranslations("goal");
 

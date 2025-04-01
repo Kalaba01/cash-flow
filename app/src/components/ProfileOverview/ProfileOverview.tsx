@@ -6,12 +6,14 @@ import { useState, useEffect } from "react";
 import { Loading, ProfileChangePassword, ProfileEdit } from "@/components";
 import { useTranslations } from "next-intl";
 
+// Interface representing the structure of user profile data
 interface UserProfile {
   first_name: string;
   last_name: string;
   email: string;
 }
 
+// Main component for displaying and managing the user's profile information
 export default function ProfileOverview() {
   const t = useTranslations("profile");
 
@@ -38,6 +40,7 @@ export default function ProfileOverview() {
     fetchUserProfile();
   }, []);
 
+  // Updates local state when user profile is modified from modal
   const handleProfileUpdate = (updatedUser: UserProfile) => {
     setUser(updatedUser);
   };

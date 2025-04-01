@@ -3,11 +3,13 @@ import styles from "./FAQCard.module.scss";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
+// Props for FAQCard component
 interface FAQCardProps {
   question: string;
   answer: string;
 }
 
+// Expandable FAQ item with toggle animation
 export default function FAQCard({ question, answer }: FAQCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 

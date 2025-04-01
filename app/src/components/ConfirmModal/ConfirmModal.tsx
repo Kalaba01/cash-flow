@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { FaTimes } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+// Props definition for the ConfirmModal component
 interface ConfirmModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -11,6 +12,7 @@ interface ConfirmModalProps {
   message: string;
 }
 
+// ConfirmModal component used for displaying a confirmation dialog
 export default function ConfirmModal({ isOpen, onClose, onConfirm, message }: ConfirmModalProps) {
   const t = useTranslations();
 

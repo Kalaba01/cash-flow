@@ -7,15 +7,18 @@ import { FaTimes, FaLock } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { showNotification } from "@/components/Notification/Notification";
 
+// Props interface for the ForgotPassword modal component
 interface ForgotPasswordProps {
   onClose: () => void;
 }
 
+// Renders the Forgot Password modal with form and animation
 export default function ForgotPassword({ onClose }: ForgotPasswordProps) {
   const t = useTranslations("forgotPassword");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Handles form submission for password reset request
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

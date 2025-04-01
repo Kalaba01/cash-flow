@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+// Renders animated section displaying app functionalities
 export default function Functionalities() {
   const t = useTranslations("functionalities");
 
@@ -23,7 +24,7 @@ export default function Functionalities() {
       >
         <div className={styles.image}>
           <Image
-            src="https://placehold.co/400x300"
+            src="/income.jpg"
             alt="Income Tracking"
             width={400}
             height={300}
@@ -44,7 +45,7 @@ export default function Functionalities() {
       >
         <div className={styles.image}>
           <Image
-            src="https://placehold.co/400x300"
+            src="/expense.jpg"
             alt="Expense Management"
             width={400}
             height={300}
@@ -65,7 +66,7 @@ export default function Functionalities() {
       >
         <div className={styles.image}>
           <Image
-            src="https://placehold.co/400x300"
+            src="/goal.jpg"
             alt="Financial Goals"
             width={400}
             height={300}

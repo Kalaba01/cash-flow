@@ -3,11 +3,13 @@ import styles from "./TransactionDownload.module.scss";
 import { FaDownload } from "react-icons/fa";
 import { TransactionItem } from "@/types/TransactionItem";
 
+// Props for the transaction download component
 interface TransactionDownloadProps {
   transactions: TransactionItem[];
   type: "income" | "expense"
 }
 
+// Button that generates and downloads filtered transactions as a CSV file
 export default function TransactionDownload({ transactions, type }: TransactionDownloadProps) {
   const handleDownload = () => {
     const headers = ["Category", "Amount", "Date", "Description"];

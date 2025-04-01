@@ -7,11 +7,13 @@ import { FaTimes, FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { showNotification, NotificationContainer } from "@/components/Notification/Notification";
 
+// Props for controlling modal visibility and switching to login modal
 interface RegisterProps {
   onClose: () => void;
   onLoginOpen: () => void;
 }
 
+// Registration modal component
 export default function Register({ onClose, onLoginOpen }: RegisterProps) {
   const t = useTranslations("register");
 
@@ -26,10 +28,12 @@ export default function Register({ onClose, onLoginOpen }: RegisterProps) {
   });
   const [loading, setLoading] = useState(false);
 
+  // Handles changes in input fields and updates form state
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Submits the registration form and sends user data to backend
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

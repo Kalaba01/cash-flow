@@ -7,12 +7,14 @@ import { ConfirmModal } from "@/components/";
 import { showNotification } from "@/components/Notification/Notification";
 import { useTranslations } from "next-intl";
 
+// Props for TransactionDelete component
 interface TransactionDeleteProps {
   transactionId: string;
   type: "income" | "expense";
   onTransactionDeleted: (transactionId: string) => void;
 }
 
+// Delete transaction logic and confirmation modal
 export default function TransactionDelete({ transactionId, type, onTransactionDeleted }: TransactionDeleteProps) {
   const t = useTranslations();
   const [isModalOpen, setIsModalOpen] = useState(false);

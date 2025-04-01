@@ -8,6 +8,7 @@ import { showNotification } from "@/components/Notification/Notification";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+// Page component for resetting user password via token
 export default function ResetPassword() {
   const t = useTranslations("resetPassword");
   const searchParams = useSearchParams();
@@ -21,6 +22,7 @@ export default function ResetPassword() {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  // Handles the password reset form submission and validation
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 

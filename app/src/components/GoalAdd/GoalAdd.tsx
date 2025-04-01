@@ -5,10 +5,12 @@ import { FaPlus } from "react-icons/fa";
 import { GoalType } from "@/types/Goal";
 import { GoalModal } from "@/components/";
 
+// Props for GoalAdd component, expects a callback when a goal is added
 interface GoalAddProps {
   onGoalAdded: (newGoal: GoalType) => void;
 }
 
+// Renders a button that opens the GoalModal to add a new financial goal
 export default function GoalAdd({ onGoalAdded }: GoalAddProps) {
   const [isOpen, setIsOpen] = useState(false);
 

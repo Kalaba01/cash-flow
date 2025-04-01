@@ -4,6 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Login, Register, ForgotPassword, HamburgerMenu, Theme, Language, Logout } from "@/components";
 
+// TopBar component that conditionally renders navigation elements based on route
 export default function TopBar() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);

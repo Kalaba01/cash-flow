@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import { showNotification } from "@/components/Notification/Notification";
 import { TransactionItem } from "@/types/TransactionItem";
 
+// Interface defining structure for form input values
 interface TransactionFormData {
   category_name: string;
   amount: string;
@@ -15,6 +16,7 @@ interface TransactionFormData {
   description?: string;
 }
 
+// Props used for managing transaction form data (create/edit)
 interface TransactionModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -23,12 +25,13 @@ interface TransactionModalProps {
   onTransactionUpdated: (updatedTransaction: TransactionItem) => void;
 }
 
+// Modal component for creating or updating a transaction
 export default function TransactionModal({
   isOpen,
   onClose,
   type,
   initialData,
-  onTransactionUpdated,
+  onTransactionUpdated
 }: TransactionModalProps) {
   const t = useTranslations();
   const [formData, setFormData] = useState<TransactionFormData>({
@@ -47,6 +50,7 @@ export default function TransactionModal({
     }
   }, [initialData]);
 
+  // Handles input changes and updates form state
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -54,6 +58,7 @@ export default function TransactionModal({
     });
   };  
 
+  // Submits new or updated transaction to the backend
   const handleSubmit = async () => {
     if (!formData.category_name || !formData.amount || !formData.date) {
       showNotification({ message: "Please fill in all required fields.", type: "error" });

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FaLock, FaHome } from "react-icons/fa";
 
+// Component displayed when user tries to access a protected route without authentication
 export default function Unauthorized() {
   const t = useTranslations("unauthorized");
   const router = useRouter();

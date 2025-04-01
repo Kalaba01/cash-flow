@@ -18,6 +18,7 @@ import {
   FaEllipsisH
 } from "react-icons/fa";
 
+// Icon map for income categories
 export const incomeIcons: Record<string, () => JSX.Element> = {
   salary: () => <FaMoneyBillWave />,
   savings: () => <FaPiggyBank />,
@@ -25,6 +26,7 @@ export const incomeIcons: Record<string, () => JSX.Element> = {
   insurance: () => <FaShieldAlt />
 };
 
+// Icon map for expense categories
 export const expenseIcons: Record<string, () => JSX.Element> = {
   food: () => <FaUtensils />,
   transport: () => <FaCar />,
@@ -38,6 +40,7 @@ export const expenseIcons: Record<string, () => JSX.Element> = {
   travel: () => <FaPlane />
 };
 
+// Returns appropriate icon based on category and type (income or expense)
 export const getCategoryIcon = (category: string, type: "income" | "expense") => {
   const normalizedCategory = category.trim().toLowerCase();
   return (type === "income" ? incomeIcons[normalizedCategory] : expenseIcons[normalizedCategory])?.() || <FaEllipsisH />;

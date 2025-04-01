@@ -5,6 +5,7 @@ import { Loading } from "@/components/";
 import { FaChartBar } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
+// Props for income items to be shown in chart
 interface IncomeItem {
   category_name: string;
   amount: number;
@@ -12,16 +13,19 @@ interface IncomeItem {
   description?: string;
 }
 
+// Props for income bar chart component
 interface IncomeBarChartProps {
   incomeData: IncomeItem[];
   loading: boolean;
 }
 
+// Props for custom tooltip rendering inside chart
 interface CustomTooltipProps {
     active?: boolean;
     payload?: { payload: IncomeItem }[];
 }
 
+// Custom tooltip component for displaying income amount and description
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     const { description, amount } = payload[0].payload;
@@ -35,6 +39,7 @@ const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   return null;
 };
 
+// Main component for rendering income data as a bar chart
 export default function IncomeBarChart({ incomeData, loading }: IncomeBarChartProps) {
   const t = useTranslations("IncomeBarChart");
 

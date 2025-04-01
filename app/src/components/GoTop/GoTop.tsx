@@ -3,6 +3,7 @@ import styles from "./GoTop.module.scss";
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
+// Scroll-to-top button shown after scrolling down
 export default function GoTop() {
   const [isVisible, setIsVisible] = useState(false);
 

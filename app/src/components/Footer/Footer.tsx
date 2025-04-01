@@ -3,9 +3,11 @@ import styles from "./Footer.module.scss";
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 
+// Renders the main footer with branding, navigation links, and social icons
 export default function Footer() {
   const t = useTranslations("footer");
 
+  // Smooth scroll to section by ID when a footer link is clicked
   const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     const element = document.getElementById(id);

@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import { showNotification } from "@/components/Notification/Notification";
 import { GoalType, GoalPeriod } from "@/types/Goal";
 
+// Props for the GoalModal component including optional initialData for editing
 interface GoalModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -15,6 +16,7 @@ interface GoalModalProps {
   initialData?: GoalType;
 }
 
+// Modal form for creating or editing a goal
 export default function GoalModal({ isOpen, onClose, onGoalAdded, initialData }: GoalModalProps) {
   const t = useTranslations("goal");
   const [formData, setFormData] = useState({

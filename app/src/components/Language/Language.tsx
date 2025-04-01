@@ -5,6 +5,7 @@ import { useLanguageStore } from "@/store/useLanguageStore";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGlobe } from "react-icons/fa";
 
+// Language selection dropdown using Zustand for locale state
 export default function Language() {
   const { locale, setLocale } = useLanguageStore();
   const [isOpen, setIsOpen] = useState(false);

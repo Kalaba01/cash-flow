@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
+// Animated landing section with hero text and image
 export default function HeroSection() {
   const t = useTranslations("heroSection");
 
@@ -22,7 +23,7 @@ export default function HeroSection() {
       </div>
       <div className={styles.image}>
         <Image
-          src="https://placehold.co/400x400"
+          src="/hero.jpg"
           alt="Finance tracking illustration"
           width={400}
           height={400}

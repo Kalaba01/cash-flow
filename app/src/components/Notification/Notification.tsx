@@ -2,11 +2,13 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Interface for notification props
 interface NotificationProps {
   message: string;
   type: "success" | "error" | "info" | "warning";
 }
 
+// Function to show toast notification using react-toastify
 export function showNotification({ message, type }: NotificationProps) {
   toast[type](message, {
     position: "top-right",
@@ -19,6 +21,7 @@ export function showNotification({ message, type }: NotificationProps) {
   });
 }
 
+// Component to render toast notification container
 export function NotificationContainer() {
   return <ToastContainer />;
 }

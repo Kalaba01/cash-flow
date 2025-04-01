@@ -6,6 +6,7 @@ import { Loading, TransactionAdd, TransactionEdit, TransactionDelete, Transactio
 import { incomeIcons, expenseIcons, getCategoryIcon } from "@/utils/categoryIcons";
 import { TransactionItem } from "@/types/TransactionItem";
 
+// Props for displaying a list of transactions
 interface TransactionListProps {
   title: string;
   addButtonTitle: string;
@@ -16,6 +17,7 @@ interface TransactionListProps {
   showButtons: boolean;
 }
 
+// Main component that handles transaction list rendering
 export default function TransactionList({
   title,
   addButtonTitle,
@@ -37,6 +39,7 @@ export default function TransactionList({
     setData(initialData);
   }, [initialData]);
 
+  // Updates filtered transaction data based on selected date range and category
   const filteredData = data.filter((item) => {
     const itemDate = new Date(item.date);
 
@@ -55,6 +58,7 @@ export default function TransactionList({
     return isDateInRange && isCategorySelected;
   });
 
+  // Removes a transaction from the list after deletion
   const handleTransactionDeleted = (transactionId: string) => {
     setData((prevData) => prevData.filter((transaction) => transaction.id !== transactionId));
   };  

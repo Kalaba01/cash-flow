@@ -1,5 +1,6 @@
 import { jwtDecode, JwtPayload } from "jwt-decode";
 
+// Checks if a user is authenticated based on the presence and validity of JWT
 export function isUserAuthenticated(): boolean {
   const token = localStorage.getItem("token");
   if (!token) return false;
